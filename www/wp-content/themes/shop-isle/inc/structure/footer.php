@@ -86,10 +86,10 @@ if ( ! function_exists( 'shop_isle_footer_copyright_and_socials' ) ) {
 							if( !empty($shop_isle_copyright) ) {	
 								echo '<p class="copyright font-alt">'.$shop_isle_copyright.'</p>';
 							}
-							if( isset($shop_isle_site_info_hide) && $shop_isle_site_info_hide != 1 ) { ?>
-								<p class="shop-isle-poweredby-box"><a class="shop-isle-poweredby" href="http://themeisle.com/themes/shop-isle/" rel="nofollow">ShopIsle </a><?php _e('powered by','shop-isle'); ?><a class="shop-isle-poweredby" href="http://wordpress.org/" rel="nofollow"> WordPress</a></p>
+							//if( isset($shop_isle_site_info_hide) && $shop_isle_site_info_hide != 1 ) { ?>
+								<p class="poweredby-box"><?php _e('powered by','shop-isle'); ?> <a class="poweredby" href="http://www.devhouse.com.br" rel="nofollow" target="_blank">DevHouse </a></p>
 							<?php
-							}
+							//}
 						echo '</div>';
 					}
 

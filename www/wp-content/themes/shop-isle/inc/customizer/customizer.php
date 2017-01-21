@@ -486,7 +486,7 @@ function shop_isle_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'shop_isle_sanitize_text'
 	));
 
-	$wp_customize->add_control(
+	/*$wp_customize->add_control(
 		'shop_isle_site_info_hide',
 		array(
 			'type' => 'checkbox',
@@ -495,7 +495,7 @@ function shop_isle_customize_register( $wp_customize ) {
 			'section' => 'shop_isle_footer_section',
 			'priority' => 2,
 		)
-	);
+	);*/
 
 	/* socials */
 	$wp_customize->add_setting( 'shop_isle_socials', array(
