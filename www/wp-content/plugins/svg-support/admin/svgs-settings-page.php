@@ -36,7 +36,6 @@
 						<div class="inside">
 
 							<form name="bodhi_svgs_settings_form" method="post" action="options.php">
-								<!-- <input type="hidden" name="bodhi_svgs_settings_form_submitted" value="Y"> -->
 
 								<?php settings_fields('bodhi_svgs_settings_group'); ?>
 
@@ -88,11 +87,12 @@
 										</td>
 									</tr>
 									<tr valign="top" class="svgs-advanced">
+										<!-- Custom CSS target field so users can set their own class to target -->
 										<th scope="row">
 											<label for="bodhi_svgs_settings[css_target]"><strong><?php _e( 'CSS Class to target', 'svg-support' ); ?></strong></label>
 										</th>
 										<td>
-											<input id="bodhi_svgs_settings[css_target]" class="all-options code" name="bodhi_svgs_settings[css_target]" type="text" value="<?php echo $bodhi_svgs_options['css_target']; ?>"><br><small class="description"><?php _e( 'The default target class is <code>style-svg</code>. You can change it to your own class such as <code>my-class</code> by typing it here.<br />Leave blank to use the default class.', 'svg-support' ); ?></small>
+											<input id="bodhi_svgs_settings[css_target]" class="all-options code" name="bodhi_svgs_settings[css_target]" type="text" value="<?php if( isset( $bodhi_svgs_options['css_target'] ) ) echo $bodhi_svgs_options['css_target']; ?>"><br /><small class="description"><?php _e( 'The default target class is <code>style-svg</code>. You can change it to your own class such as <code>my-class</code> by typing it here.<br />Leave blank to use the default class.', 'svg-support' ); ?></small>
 										</td>
 									</tr>
 
@@ -156,6 +156,16 @@
 			<div id="postbox-container-1" class="postbox-container">
 
 				<div class="meta-box-sortables">
+
+					<div class="postbox">
+
+						<h3><span><?php _e( 'Ratings & Reviews', 'svg-support' ); ?></span></h3>
+						<div class="inside">
+							<p><?php _e( 'If you like <strong>SVG Support</strong> please consider leaving a', 'svg-support' ); ?> <a href="https://wordpress.org/support/view/plugin-reviews/svg-support?filter=5#postform" target="_blank" class="svgs-rating-link">&#9733;&#9733;&#9733;&#9733;&#9733;</a> <?php _e( 'rating.', 'svg-support' ); ?><br><?php _e( 'A huge thanks in advance!', 'svg-support' ); ?></p>
+							<p><a href="https://wordpress.org/support/view/plugin-reviews/svg-support?filter=5#postform" target="_blank" class="button-primary">Leave a rating</a></p>
+						</div> <!-- .inside -->
+
+					</div> <!-- .postbox -->
 
 					<div class="postbox">
 

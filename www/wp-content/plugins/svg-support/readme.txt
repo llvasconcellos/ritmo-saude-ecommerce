@@ -3,8 +3,8 @@ Contributors: Benbodhi
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z9R7JERS82EQQ
 Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation
 Requires at least: 4.0
-Tested up to: 4.8-alpha-39923
-Stable tag: 2.3.5
+Tested up to: 4.8-alpha-39948
+Stable tag: 2.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,13 @@ If you are using SVG Support with Visual Composer or any other page builders, yo
 
 == Changelog ==
 
+= 2.3.6 =
+
+* New: Added polyfill to make svgs-inline.js work with older browsers.
+* New: Section to leave reviews on settings page.
+* Removed: Redundant one time upgrade activate code.
+* Fix: Errors reported on activation and on the settings page - [Related Support Thread](https://wordpress.org/support/topic/error-on-plugin-settings-page/).
+
 = 2.3.5 =
 
 * Revision and modification of the thumbnail display code.
@@ -180,11 +187,11 @@ If you are using SVG Support with Visual Composer or any other page builders, yo
 
 * FIX: Added function to temporarily fix an issue with uploading in WP 4.7.1
 
-= 2.2.3.2 =
+= 2.2.32 =
 
 * Changed text domain to match plugin slug for localization.
 
-= 2.2.3.1 =
+= 2.2.31 =
 
 * Attempt to fix ability to translate
 
@@ -268,6 +275,10 @@ If you are using SVG Support with Visual Composer or any other page builders, yo
 
 == Upgrade Notice ==
 
+= 2.3.6 =
+
+* Adds support for older browsers, fixes a couple of seemingly isolated errors reported, removes some redundant code.
+
 = 2.3.5 =
 
 * Modifications to thumbnail display code to prevent output buffer clash with another plugin.
@@ -300,11 +311,11 @@ IMPORTANT, MAJOR CHANGES, BACKUP BEFORE UPDATING: Users that are inlining SVG wi
 
 * IMPORTANT: Fixes upload ability in WP 4.7.1
 
-= 2.2.3.2 =
+= 2.2.32 =
 
 * Changed text domain to match plugin slug for localization.
 
-= 2.2.3.1 =
+= 2.2.31 =
 
 * This release attempts to fix translation issues.
 

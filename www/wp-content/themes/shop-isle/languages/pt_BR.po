@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ShopIsle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-21 10:54-0200\n"
-"PO-Revision-Date: 2017-01-21 12:10-0200\n"
+"POT-Creation-Date: 2017-01-21 13:57-0200\n"
+"PO-Revision-Date: 2017-01-21 13:57-0200\n"
 "Last-Translator: Leonardo Lima de Vasconcellos <leo.lima.web@gmail.com>\n"
 "Language-Team: Themeisle <friends@themeisle.com>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;esc_html__\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;esc_html__;esc_attr_x\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.11\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -995,6 +995,14 @@ msgstr "powered by"
 #: inc/structure/header.php:49
 msgid "Toggle navigation"
 msgstr "Alternar navegação"
+
+#: inc/structure/header.php:71
+msgid "Search for:"
+msgstr "Buscar por:"
+
+#: inc/structure/header.php:72
+msgid "Search"
+msgstr "Buscar"
 
 #: inc/structure/page.php:18 inc/structure/post.php:40
 msgid "Pages:"

@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Client Side Image Resize\n"
+"POT-Creation-Date: 2014-05-01 18:56-0300\n"
+"PO-Revision-Date: 2014-05-01 19:05-0300\n"
+"Last-Translator: Leonardo Lima de Vasconcellos <leonardo@devhouse.com.br>\n"
+"Language-Team: DevHouse <leonardo@devhouse.com.br>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../client-side-image-resize.php:56
+msgid "Settings"
+msgstr ""
+
+#: ../client-side-image-resize.php:63
+msgid "Client Side Image Resize Plugin is active!"
+msgstr ""
+
+#: ../client-side-image-resize.php:65
+msgid "Large images will be resized as specified in your media settings!"
+msgstr ""
+
+#: ../client-side-image-resize.php:79
+msgid "JPG quality"
+msgstr ""
+
+#: ../client-side-image-resize.php:87
+msgid "Resize width"
+msgstr ""
+
+#: ../client-side-image-resize.php:95
+msgid "Resize height"
+msgstr ""
+
+#: ../client-side-image-resize.php:166
+msgid ""
+"Invalid resize jpg quality! Value must be 1-100. A default value of 80 has "
+"been set."
+msgstr ""

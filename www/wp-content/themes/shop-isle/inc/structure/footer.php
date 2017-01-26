@@ -158,6 +158,7 @@ if ( ! function_exists( 'shop_isle_footer_wrap_open' ) ) {
 	 */
 	function shop_isle_footer_wrap_open() {
 		echo '</div><div class="bottom-page-wrap">';
+		readfile('wp-content/themes/shop-isle/pagseguro-flags.html');
 	}
 
 }
