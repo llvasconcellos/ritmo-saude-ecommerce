@@ -1,3 +1,7 @@
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.ritmosaude.com.br/$1 [R,L]
+
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
@@ -10,3 +14,32 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+
+
+
+
+
+
+
+
+
+
+
+## BEGIN WORDPRESS LOCKDOWN ##
+
+## IMPORTANT - If you customize the rules below, change the line above to read '## BEGIN WORDPRESS LOCKDOWN - CUSTOM ##'
+
+# Rules to protect Wordpress from malicious code injections
+<FilesMatch "\.(php)$">
+# Deny everyone but localhost access to PHP files. See the next stanza for index.php and wp-login.php public access.
+  Order Deny,Allow
+  Deny from all
+# Append additional IPs to the line below if external web access to PHP files is needed.
+  Allow from 127.0.0.1
+</FilesMatch>
+<FilesMatch "index.php|wp-login.php|wp-comments-post.php|wp-cron.php|load-styles.php|edit.php|post.php|wp-tinymce.php">
+# Allow anyone to access files listed above.
+  Allow from all
+</FilesMatch>
+## END WORDPRESS LOCKDOWN ##

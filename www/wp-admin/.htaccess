@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## BEGIN WORDPRESS LOCKDOWN ##
+
+## IMPORTANT - If you customize the rules below, change the line above to read '## BEGIN WORDPRESS LOCKDOWN - CUSTOM ##'
+
+<FilesMatch "\.(php)$">
+  Allow from all
+</FilesMatch>
+## END WORDPRESS LOCKDOWN ##

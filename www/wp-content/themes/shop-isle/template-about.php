@@ -96,7 +96,7 @@ get_header(); ?>
 				<!-- Divider -->
 
 		<!-- Features start -->
-		<section class="module module-advantages">
+		<!--section class="module module-advantages">
 			<div class="container">
 
 				<?php
@@ -173,7 +173,7 @@ get_header(); ?>
 				?>
 
 			</div><!-- .container -->
-		</section>
+		</section-->
 		<!-- Features end -->
 	
 <?php get_footer(); ?>
