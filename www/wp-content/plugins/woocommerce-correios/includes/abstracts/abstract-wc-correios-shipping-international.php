@@ -4,7 +4,7 @@
  *
  * @package WooCommerce_Correios/Abstracts
  * @since   3.0.0
- * @version 3.0.0
+ * @version 3.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -39,6 +39,7 @@ abstract class WC_Correios_Shipping_International extends WC_Correios_Shipping {
 		$this->title              = $this->get_option( 'title' );
 		$this->origin_state       = $this->get_option( 'origin_state' );
 		$this->origin_location    = $this->get_option( 'origin_location' );
+		$this->shipping_class_id  = (int) $this->get_option( 'shipping_class_id', '-1' );
 		$this->show_delivery_time = $this->get_option( 'show_delivery_time' );
 		$this->fee                = $this->get_option( 'fee' );
 		$this->debug              = $this->get_option( 'debug' );
@@ -91,6 +92,15 @@ abstract class WC_Correios_Shipping_International extends WC_Correios_Shipping {
 					'I' => __( 'Interior', 'woocommerce-correios' ),
 				),
 			),
+			'shipping_class_id' => array(
+				'title'       => __( 'Shipping Class', 'woocommerce-correios' ),
+				'type'        => 'select',
+				'description' => __( 'If necessary, select a shipping class to apply this method.', 'woocommerce-correios' ),
+				'desc_tip'    => true,
+				'default'     => '',
+				'class'       => 'wc-enhanced-select',
+				'options'     => $this->get_shipping_classes_options(),
+			),
 			'show_delivery_time' => array(
 				'title'       => __( 'Delivery Time', 'woocommerce-correios' ),
 				'type'        => 'checkbox',
@@ -142,7 +152,7 @@ abstract class WC_Correios_Shipping_International extends WC_Correios_Shipping {
 	 *
 	 * @param  array $package Order package.
 	 *
-	 * @return SimpleXMLElement
+	 * @return SimpleXMLElement|null
 	 */
 	protected function get_rate( $package ) {
 		$api = new WC_Correios_Webservice_International( $this->id, $this->instance_id );
@@ -171,6 +181,11 @@ abstract class WC_Correios_Shipping_International extends WC_Correios_Shipping {
 			return;
 		}
 
+		// Check for shipping classes.
+		if ( ! $this->has_only_selected_shipping_class( $package ) ) {
+			return;
+		}
+
 		$shipping = $this->get_rate( $package );
 
 		if ( empty( $shipping->dados_postais->preco_postal ) ) {
@@ -196,7 +211,7 @@ abstract class WC_Correios_Shipping_International extends WC_Correios_Shipping {
 		$rate = apply_filters( 'woocommerce_correios_' . $this->id . '_rate', array(
 			'id'    => $this->id . $this->instance_id,
 			'label' => $label,
-			'cost'  => $cost + $fee,
+			'cost'  => (float) $cost + (float) $fee,
 		), $this->instance_id, $package );
 
 		// Deprecated filter.

@@ -4,12 +4,12 @@ Contributors: zealopensource
 Tags: woocommerce, gallery, video gallery, video and image gallery, embed videos, videos woocommerce, iframe, youtube videos, vimeo videos, videos product gallery
 Donate link: http://www.zealousweb.net/payment/
 Requires at least: 3.0.1
-Tested up to: 4.2.x
-Stable tag: 1.2
+Tested up to: 4.7.x
+Stable tag: 2.2
 License: GPLv3 or later License
 WC requires at least: 1.5
-WC tested up to: 2.3.x
-Version: 1.2
+WC tested up to: 3.0.x
+Version: 2.2
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 
@@ -38,8 +38,7 @@ WordPress   : Wordpress 3.0 and latest
 2. Activate the plugin in your Wordpress Admin and go to Products at admin panel.
 3. Edit any product to add Video Link ID in Product Gallery media tool.
 4. Use ID of video For Eg.: "112233445" for URL - https://vimeo.com/112233445 & "n93gYncUD" for URL - https://www.youtube.com/watch?v=n93gYncUD.
-5. Set WooCommerce Settings => Products Tab => Display => Enable Lightbox for product images as per your requirement to display videos in lightbox or as inline embedded videos.
-6. Enjoy videos in product gallery at frontend.
+5. Enjoy videos in product gallery at frontend.
 
 == Screenshots ==
 1. Screenshot 'screenshot-1.png' shows all the possible options available for this plugin at Product Gallery media tool.
@@ -48,6 +47,15 @@ WordPress   : Wordpress 3.0 and latest
 3. Screenshot 'screenshot-4.png' shows settings page of Youtube video parameters.
 
 == Changelog ==
+
+= 2.2 - 18/07/2017 =
+* Change - Bug fixing.
+
+= 2.1 - 10/07/2017 =
+* Change - We have make plugin comparable to latest woo commerce 3.1.0 with wordpress 4.8.
+
+= 2.0 - 18/04/2017 =
+* Change - We have make plugin comparable to latest woo commerce 3.0.3.
 
 = 1.2 - 02/09/2015 =
 * Change - Added Youtube video control Settings.

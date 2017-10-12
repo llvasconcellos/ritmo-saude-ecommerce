@@ -18,19 +18,19 @@ class WC_Correios_Shipping_PAC extends WC_Correios_Shipping {
 
 	/**
 	 * Service code.
-	 * 41106 - PAC without contract.
+	 * 04510 - PAC without contract.
 	 *
 	 * @var string
 	 */
-	protected $code = '41106';
+	protected $code = '04510';
 
 	/**
 	 * Corporate code.
-	 * 41068 - PAC with contract.
+	 * 04669 - PAC with contract.
 	 *
 	 * @var string
 	 */
-	protected $corporate_code = '41068';
+	protected $corporate_code = '04669';
 
 	/**
 	 * Initialize PAC.
@@ -43,5 +43,19 @@ class WC_Correios_Shipping_PAC extends WC_Correios_Shipping {
 		$this->more_link    = 'http://www.correios.com.br/para-voce/correios-de-a-a-z/pac-encomenda-economica';
 
 		parent::__construct( $instance_id );
+	}
+
+	/**
+	 * Get the declared value from the package.
+	 *
+	 * @param  array $package Cart package.
+	 * @return float
+	 */
+	protected function get_declared_value( $package ) {
+		if ( 17 >= $package['contents_cost'] ) {
+			return 0;
+		}
+
+		return $package['contents_cost'];
 	}
 }

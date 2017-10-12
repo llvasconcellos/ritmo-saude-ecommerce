@@ -4,14 +4,14 @@
  *
  * @author  Claudio_Sanches
  * @package WooCommerce_Correios/Templates
- * @version 3.0.0
+ * @version 3.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-echo '= ' . $email_heading . " =\n\n";
+echo "= " . $email_heading . " =\n\n";
 
 echo wptexturize( $tracking_message ) . "\n\n";
 
@@ -19,49 +19,26 @@ echo __( 'For your reference, your order details are shown below.', 'woocommerce
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
-do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text );
-
-printf( __( 'Order number: %s', 'woocommerce-correios' ), $order->get_order_number() ) . "\n";
-printf( __( 'Order date: %s', 'woocommerce-correios' ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ) . "\n";
-
-do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text );
-
-if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.5', '>=' ) ) {
-	$order_items = $order->email_order_items_table( array(
-		'plain_text' => true,
-	) );
-} else {
-	$order_items = $order->email_order_items_table( true, false, true, '', '', true );
-}
-
-echo "\n" . $order_items;
-
-echo "----------\n\n";
-
-if ( $totals = $order->get_order_item_totals() ) {
-	foreach ( $totals as $total ) {
-		echo $total['label'] . "\t " . $total['value'] . "\n";
-	}
-}
-
-do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text );
+/**
+ * @hooked WC_Emails::order_details() Shows the order details table.
+ * @hooked WC_Structured_Data::generate_order_data() Generates structured data.
+ * @hooked WC_Structured_Data::output_structured_data() Outputs structured data.
+ * @since 2.5.0
+ */
+do_action( 'woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email );
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
 /**
- * Order meta.
- *
  * @hooked WC_Emails::order_meta() Shows order meta data.
  */
-do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text );
+do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );
 
 /**
- * Customer details.
- *
- * @hooked WC_Emails::customer_details() Shows customer details.
- * @hooked WC_Emails::email_address() Shows email address.
+ * @hooked WC_Emails::customer_details() Shows customer details
+ * @hooked WC_Emails::email_address() Shows email address
  */
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text );
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 

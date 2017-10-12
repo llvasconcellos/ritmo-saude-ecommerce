@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce - Embed Videos To Product Image Gallery
  * Plugin URL: http://wordpress.org/plugins/woocommerce-embed-videos-product-image-gallery
  * Description:  Embed videos to product gallery alongwith images on product page of WooCommerce.
- * Version: 1.2
+ * Version: 2.2
  * Author: ZealousWeb Technologies
  * Author URI: http://zealousweb.com
  * Developer: The Zealousweb Team
@@ -65,6 +65,7 @@ function register_embed_videos_settings() {
         register_setting( 'embed-videos-settings', 'embed_videos_hd' );
  } 
 
+
  /**
  * Initialize the plugin and display all options at admin side
  */
@@ -89,12 +90,13 @@ function embed_videos_init(){
                 <input type="checkbox" name="embed_videos_showinfo" value="1" <?php echo (get_option( 'embed_videos_showinfo' ) == 1) ? 'checked': '';?>/>                
             </td>
         </tr> 
+        <?php /*
         <tr valign="top">
             <th scope="row">Allow keyboard controls:</th>
             <td>
                 <input type="checkbox" name="embed_videos_disablekb" value="1" <?php echo (get_option( 'embed_videos_disablekb' ) == 1) ? 'checked': '';?>/>
             </td>
-        </tr> 
+        </tr> */ ?>
         <tr valign="top">
             <th scope="row">Show fullscreen button:</th>
             <td>
@@ -107,12 +109,13 @@ function embed_videos_init(){
                 <input type="checkbox" name="embed_videos_controls" value="1" <?php echo (get_option( 'embed_videos_controls' ) == 1) ? 'checked': '';?>/>
             </td>
         </tr>
+        <?php /*
         <tr valign="top">
             <th scope="row">Play video in HD mode:</th>
             <td>
                 <input type="checkbox" name="embed_videos_hd" value="1" <?php echo (get_option( 'embed_videos_hd' ) == 1) ? 'checked': '';?>/>              
             </td>
-        </tr>
+        </tr>*/ ?>
     </table>
     <?php submit_button(); ?>
     </div>
@@ -177,11 +180,9 @@ function my_deregister_javascript() {
     wp_deregister_script( 'prettyPhoto-init' );   
 }
 
-add_action( 'wp_enqueue_scripts', 'embedvideos_scripts' );
+add_action( 'wp_enqueue_scripts', 'embedvideos_scripts',999 );
 function embedvideos_scripts() {
-    wp_dequeue_style( 'woocommerce_prettyPhoto_css');
-    wp_enqueue_script( 'EmbedVideosPrettyPhoto', plugins_url().'/woocommerce-embed-videos-to-product-image-gallery/assets/PrettyPhoto/js/jquery.prettyPhoto.js', array( 'jquery' ), '20150330', false);
-    wp_enqueue_style( 'EmbedVideosPrettyPhoto', plugins_url().'/woocommerce-embed-videos-to-product-image-gallery/assets/PrettyPhoto/css/prettyPhoto.css' );
+    wp_enqueue_script( 'custom-photoswipe', plugins_url().'/woocommerce-embed-videos-to-product-image-gallery/js/photoswipe.js',array(), '', true  );
 }
 
 /**
@@ -189,53 +190,23 @@ function embedvideos_scripts() {
   */
 add_action( 'wp_head', 'woo_scripts_styles' );
 function woo_scripts_styles() {    
-    $enable_lightbox = get_option( 'woocommerce_enable_lightbox' );   ?>
-    <style>
-    .play-overlay{
-        background: url('<?php echo plugins_url();?>/woocommerce-embed-videos-to-product-image-gallery/assets/play.png') center center no-repeat;
-        height: 61px;
-        margin: -80px -2px 0 0;
-        position: relative;
-        z-index: 10;
-    }
-    </style>
-    <script>
-        jQuery(document).ready(function(){
-            var enable_lightbox = '<?php echo $enable_lightbox;?>';
-            if(enable_lightbox == 'no'){  
-                jQuery('.thumbnails .zoom').click(function(e){                
-                    e.preventDefault();                
-                    var photo_fullsize =  jQuery(this).attr('href');                     
-                    if (jQuery('.images iframe').length > 0) 
-                    {                     
-                        if(photo_fullsize.indexOf('youtube') > (-1) || photo_fullsize.indexOf('vimeo') > (-1)){            
-                            jQuery('.images iframe:first').attr('src', photo_fullsize);
-                        } else {
-                            jQuery('.images iframe:first').replaceWith('<img src="'+photo_fullsize+'" alt="Placeholder">');
-                        }                    
-                    } else {                
-                       if(photo_fullsize.indexOf('youtube') > (-1) || photo_fullsize.indexOf('vimeo') > (-1)){            
-                            jQuery('.images img:first').replaceWith( '<iframe src="'+photo_fullsize+'" frameborder="0" allowfullscreen></iframe>' );
-                        } else {
-                            jQuery('.images img:first').attr('src', photo_fullsize);
-                        }
-                    }             
-                });
-            }
-            else{                 
-                    jQuery("a[rel^='prettyPhoto[product-gallery]']").prettyPhoto();                        
-            }
-        });
-    </script>        
+    $enable_lightbox = get_option( 'woocommerce_enable_lightbox' );   ?>    
 <?php }
 /**
   * Replace the single product thumbnail html with blank content 
   */
-add_filter('woocommerce_single_product_image_thumbnail_html', 'remove_thumbnail_html');
+//add_filter('woocommerce_single_product_image_thumbnail_html', 'remove_thumbnail_html');
 function remove_thumbnail_html($html){
     $html = '';
     return $html;
 }
+
+function remove_gallery_thumbnail_images() {
+if ( is_product() ) {
+    remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
+    }
+}
+add_action('template_redirect', 'remove_gallery_thumbnail_images');
 
 /* * @global type $woocommerce
  * @global type $product
@@ -243,19 +214,53 @@ function remove_thumbnail_html($html){
  */
 add_action( 'woocommerce_product_thumbnails', 'woo_display_embed_video', 20 );
 function woo_display_embed_video( $html ) {
-    // Get WooCommerce Global
-    global $woocommerce;
+    ?>
+
+    <script type="text/javascript">
+        jQuery(window).load(function(){
+            jQuery('.woocommerce-product-gallery .flex-viewport').prepend('<div class="emoji-search-icon"></div>');
+            jQuery('a.woocommerce-product-gallery__trigger').hide();
+        });
+    </script>
+    <?php
+    global $wpdb;
+ 	$post_id_arr = $wpdb->get_results("SELECT post_id,meta_value FROM $wpdb->postmeta WHERE meta_key = 'videolink_id' " );
+ 	foreach ($post_id_arr as $key => $value) {
+ 		$new_post_id_arr[$value->meta_value] = $value->post_id;
+ 	}
+
+ 	$product_thum_id = get_post_meta(get_the_ID(),'_thumbnail_id',true);
+        if(in_array($product_thum_id, $new_post_id_arr)){
+ 		$videolink_id_value = get_post_meta($product_thum_id,'videolink_id',true);
+ 		if(!empty($videolink_id_value)){
+	 		$video_link_name = get_post_meta($product_thum_id,'video_site',true);
+	 		?>
+	 			<script type="text/javascript">
+	 			var video_links = '<?php echo video_site_name($video_link_name,$videolink_id_value); ?>';
+                    jQuery(window).load(function(){
+                        var id = '.woocommerce-product-gallery__wrapper';
+	 					jQuery('.woocommerce-product-gallery__wrapper').find('div a').first().attr('href','#');
+	 					jQuery('.woocommerce-product-gallery__wrapper').find('div a').first().attr('data-type','video');
+	 					jQuery('.woocommerce-product-gallery__wrapper').find('div a').first().attr('data-video','<div class="wrapper"><div class="video-wrapper"><iframe width="1000" height="640" src="'+video_links+'" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div></div>');
+                        jQuery(id+' div:first-child a img').remove();
+                        jQuery(id+' div:first-child img').remove();
+                        jQuery(id+' div:first-child a').html('<iframe height="" src="'+video_links+'" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>');
+	 				});
+	 			</script>
+	 		<?php
+ 		}
+ 	}
+   	global $woocommerce;
     global $product;    
      
-    $attachment_ids = $product->get_gallery_attachment_ids();
+    $attachment_ids = $product->get_gallery_image_ids();
     $enable_lightbox = get_option( 'woocommerce_enable_lightbox' );
-    
     if ( $attachment_ids ) {
         $newhtml = "";
         $loop       = 0;
-        $columns    = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
-        $newhtml = '<div class="thumbnails columns-' . $columns.'">';
+        $columns    = apply_filters( 'woocommerce_product_thumbnails_columns', 3 ); 
         foreach ( $attachment_ids as $attachment_id ) {
+        $newhtml .= '<div data-thumb="'.wp_get_attachment_url( $attachment_id ).'" class="woocommerce-product-gallery__image" >';
             $classes = array( 'zoom' );
             if ( $loop == 0 || $loop % $columns == 0 )
                 $classes[] = 'first';
@@ -265,7 +270,17 @@ function woo_display_embed_video( $html ) {
             if ( ! $image_link )
                 continue;
             $video_link = '';
-            $image       = wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ) );
+            $full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
+            $thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
+            $attributes      = array(
+              'title'                   => get_post_field( 'post_title', $attachment_id ),
+              'data-caption'            => get_post_field( 'post_excerpt', $attachment_id ),
+              'data-src'                => $full_size_image[0],
+              'data-large_image'        => $full_size_image[0],
+              'data-large_image_width'  => $full_size_image[1],
+              'data-large_image_height' => $full_size_image[2],
+            );
+            $image = wp_get_attachment_image( $attachment_id, 'shop_single', false, $attributes );
             $image_class = esc_attr( implode( ' ', $classes ) );
             $image_title = esc_attr( get_the_title( $attachment_id ) );
             $videolink_id = get_post_meta( $attachment_id, 'videolink_id', true );            
@@ -291,22 +306,60 @@ function woo_display_embed_video( $html ) {
 
                         $parameters = "?autoplay=".$autoplay."&rel=".$rel."&fs=".$fs."&showinfo=".$showinfo."&disablekb=".$disablekb."&controls=".$controls."&hd=".$hd;
 
-                        $video_link = ($enable_lightbox == 'yes') ? 'https://www.youtube.com/watch?v='.$videolink_id.$parameters : 'https://www.youtube.com/embed/'.$videolink_id.$parameters;
+                        $video_link = 'https://www.youtube.com/embed/'.$videolink_id.$parameters;
                         break;  
                     case 'vimeo':
-                        $video_link = ($enable_lightbox == 'yes') ? 'https://vimeo.com/'.$videolink_id : 'https://player.vimeo.com/video/'.$videolink_id;
+                        $video_link = 'https://player.vimeo.com/video/'.$videolink_id;
                         break;  
                 }
             }
             $video = '';
             if(!empty($video_link)){
-                $video = '<div class="play-overlay"></div>';
+
+            $newhtml .= '<a href="#"  data-type="video" data-video="<div class=&quot;wrapper&quot;><div class=&quot;video-wrapper&quot;><iframe width=&quot;1000&quot; height=&quot;640&quot; src=&quot;'.$video_link.'&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot;></iframe></div></div>" ><iframe class="iframelist"  height="" src="'.$video_link.'" frameborder="0" allowfullscreen=
+            "true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></a>';
+            ?>
+            <?php
+            }else{
+               $link = (empty($video_link)) ? $image_link : $video_link;       
+            $newhtml .= '<a href="'.$link.'" class="'. $image_class.'" title="'. $image_title.'" rel="prettyPhoto[product-gallery]" data-type="image"  >'.$image.' </a>';   
             }
-            $link = (empty($video_link)) ? $image_link : $video_link;            
-            $newhtml .= '<a href="'.$link.'" class="'. $image_class.'" title="'. $image_title.'" rel="prettyPhoto[product-gallery]">'.$image.$video.'</a>';
+          
             $loop++;
-        }
         $newhtml .= '</div>'; 
+        }
+        echo $newhtml;     
     }
-    echo $newhtml;     
+?>
+        <link rel='stylesheet prefetch' href='<?php echo plugins_url().'/woocommerce-embed-videos-to-product-image-gallery/css/photoswipe.css'; ?>'>
+        <?php 
+}
+function video_site_name($video_site,$videolink_id){
+	switch ($video_site) {
+	    case 'youtube':                     
+
+	        $autoplay = get_option( 'embed_videos_autoplay' );
+	        $autoplay = (empty($autoplay)) ? 0 : 1;
+	        $rel = get_option( 'embed_videos_rel' );
+	        $rel = (empty($rel)) ? 0 : 1;
+	        $showinfo = get_option( 'embed_videos_showinfo' );
+	        $showinfo = (empty($showinfo)) ? 0 : 1;
+	        $disablekb = get_option( 'embed_videos_disablekb' );
+	        $disablekb = (empty($disablekb)) ? 0 : 1;
+	        $fs = get_option( 'embed_videos_fs' );
+	        $fs = (empty($fs)) ? 0 : 1;
+	        $controls = get_option( 'embed_videos_controls' );
+	        $controls = (empty($controls)) ? 0 : 1;
+	        $hd = get_option( 'embed_videos_hd' );
+	        $hd = (empty($hd)) ? 0 : 1;
+
+	        $parameters = "?autoplay=".$autoplay."&rel=".$rel."&fs=".$fs."&showinfo=".$showinfo."&disablekb=".$disablekb."&controls=".$controls."&hd=".$hd;
+
+	        $video_link = 'https://www.youtube.com/embed/'.$videolink_id.$parameters;
+	        break;  
+	    case 'vimeo':
+	        $video_link = 'https://player.vimeo.com/video/'.$videolink_id;
+	        break;  
+	}
+	echo $video_link;
 }

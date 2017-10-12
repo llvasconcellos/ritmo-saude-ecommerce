@@ -12,13 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Admin notice markup
  */
 function bodhi_svgs_admin_notice_upgrade() {
-	?>
-	<div class="notice notice-warning is-dismissible svgs-upgrade-notice">
-		<p><?php _e( 'If you updated SVG Support from any version prior to 2.3 and you use the inline SVG features, please ', 'svg-support' ); ?><a href="<?php echo get_admin_url( null, 'options-general.php?page=svg-support' ); ?>"><?php _e( 'Enable Advanced Mode', 'svg-support' ); ?></a></p>
-	</div>
-	<?php
+
+	echo '<div class="notice notice-warning is-dismissible svgs-upgrade-notice">';
+		echo '<p>' . __( 'If you updated SVG Support from any version prior to 2.3 and you use the inline SVG features, please ', 'svg-support' ) . '<a href="' . get_admin_url( null, 'options-general.php?page=svg-support' ) . '">' . __( 'Enable Advanced Mode', 'svg-support' ) . '</a></p>';
+	echo '</div>';
 
 	update_option( 'bodhi_svgs_admin_notice_dismissed', 0 );
+
 }
 
 /**
@@ -39,10 +39,10 @@ add_action( 'admin_enqueue_scripts', 'bodhi_svgs_admin_notice_enqueue' );
 /**
  * Ajax to set option of dismissed
  */
-function dismiss_svgs_admin_notice() {
+function bodhi_svgs_dismiss_admin_notice() {
 	update_option( 'bodhi_svgs_admin_notice_dismissed', 1 );
 }
-add_action( 'wp_ajax_dismiss_svgs_admin_notice', 'dismiss_svgs_admin_notice' );
+add_action( 'wp_ajax_bodhi_svgs_dismiss_admin_notice', 'bodhi_svgs_dismiss_admin_notice' );
 
 /**
  * Remove notice dismissed option when plugin is deactivated or uninstalled

@@ -2,8 +2,8 @@
 /*
 Plugin Name: 	SVG Support
 Plugin URI:		http://wordpress.org/plugins/svg-support/
-Description: 	Allow SVG file uploads using the WordPress Media Library uploader plus the ability to inline SVG files for direct targeting of SVG elements for CSS and JS.
-Version: 		2.3.6
+Description: 	Allow SVG file uploads using the WordPress Media Library uploader plus the ability to inline SVG files for direct styling/animation of SVG elements using CSS/JS.
+Version: 		2.3.11
 Author: 		Benbodhi
 Author URI: 	http://benbodhi.com
 Text Domain: 	svg-support
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Global variables
  */
-$svgs_plugin_version = '2.3.6';										// for use on admin pages
+$svgs_plugin_version = '2.3.11';									// for use on admin pages
 $plugin_file = plugin_basename(__FILE__);							// plugin file for reference
 define( 'BODHI_SVGS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );	// define the absolute plugin path for includes
 define( 'BODHI_SVGS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );		// define the plugin url for use in enqueue
@@ -34,7 +34,7 @@ $bodhi_svgs_options = get_option('bodhi_svgs_settings');			// retrieve our plugi
 include( BODHI_SVGS_PLUGIN_PATH . 'admin/admin-init.php' );         		// initialize admin menu & settings page
 include( BODHI_SVGS_PLUGIN_PATH . 'admin/plugin-action-meta-links.php' );	// add links to the plugin on the plugins page
 include( BODHI_SVGS_PLUGIN_PATH . 'admin/admin-notice.php' );				// dismissable admin notice to warn users to update settings
-include( BODHI_SVGS_PLUGIN_PATH . 'functions/mime-types.php' );				// setup mime types support for SVG
+include( BODHI_SVGS_PLUGIN_PATH . 'functions/mime-types.php' );				// setup mime types support for SVG (with fix for WP 4.7.1 - 4.7.2)
 include( BODHI_SVGS_PLUGIN_PATH . 'functions/thumbnail-display.php' );		// make SVG thumbnails display correctly in media library
 include( BODHI_SVGS_PLUGIN_PATH . 'functions/attachment-modal.php' );		// make SVG thumbnails display correctly in attachment modals
 include( BODHI_SVGS_PLUGIN_PATH . 'functions/enqueue.php' );				// enqueue js & css for inline replacement & admin
@@ -63,18 +63,3 @@ if ( empty( $svgs_plugin_version_stored ) ) {
 	update_option( 'bodhi_svgs_plugin_version', $svgs_plugin_version );
 
 }
-
-/**
- * TEMP FIX FOR 4.7.1
- * Issue should be fixed in 4.7.2 in which case this will be deleted.
- */
-function bodhi_svgs_disable_real_mime_check( $data, $file, $filename, $mimes ) {
-	$wp_filetype = wp_check_filetype( $filename, $mimes );
-
-	$ext = $wp_filetype['ext'];
-	$type = $wp_filetype['type'];
-	$proper_filename = $data['proper_filename'];
-
-	return compact( 'ext', 'type', 'proper_filename' );
-}
-add_filter( 'wp_check_filetype_and_ext', 'bodhi_svgs_disable_real_mime_check', 10, 4 );

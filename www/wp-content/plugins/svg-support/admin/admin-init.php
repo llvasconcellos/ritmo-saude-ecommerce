@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function bodhi_svgs_admin_menu() {
 
-	add_options_page(
-		__('SVG Support Options and Instructions', 'svg-support'),
+	$bodhi_svgs_options_page = add_options_page(
+		__('SVG Support Settings and Usage', 'svg-support'),
 		__('SVG Support', 'svg-support'),
 		'manage_options',
 		'svg-support',
@@ -33,7 +33,9 @@ function bodhi_svg_support_settings_page() {
 
 	}
 
-	global $bodhi_svgs_options;
+	// Swapped the global with this line to work with WordPress Bedrock on LEMP stack | https://wordpress.org/support/topic/settings-not-saving-24/
+	// global $bodhi_svgs_options;
+	$bodhi_svgs_options = get_option( 'bodhi_svgs_settings' );
 
 	require( BODHI_SVGS_PLUGIN_PATH . 'admin/svgs-settings-page.php' );
 
@@ -81,7 +83,6 @@ function bodhi_svgs_specific_pages_settings() {
 	$screen = get_current_screen();
 
 	// check if we're on SVG Support settings page
-
 	if ( is_object($screen) && $screen->id == 'settings_page_svg-support' ) {
 
 		return true;

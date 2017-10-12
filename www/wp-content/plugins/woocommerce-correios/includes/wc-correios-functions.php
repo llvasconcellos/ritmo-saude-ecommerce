@@ -4,7 +4,7 @@
  *
  * @package WooCommerce_Correios/Functions
  * @since   3.0.0
- * @version 3.0.0
+ * @version 3.2.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -106,6 +106,7 @@ function wc_correios_get_error_message( $code ) {
 		'-33' => __( 'System temporarily down. Please try again later.', 'woocommerce-correios' ),
 		'-3'  => __( 'Invalid zip code.', 'woocommerce-correios' ),
 		'010' => __( 'Area with delivery temporarily subjected to different periods.', 'woocommerce-correios' ),
+		'011' => __( 'The destination CEP is subject to special delivery conditions by ECT and will be carried out with the addition of up to 7 (seven) business days to the regular term.', 'woocommerce-correios' ),
 	) );
 
 	return isset( $messages[ $code ] ) ? $messages[ $code ] : '';
@@ -122,39 +123,100 @@ function wc_correios_trigger_tracking_code_email( $order, $tracking_code ) {
 	$notification = $mailer->emails['WC_Correios_Tracking_Email'];
 
 	if ( 'yes' === $notification->enabled ) {
-		$notification->trigger( $order, $tracking_code );
+		if ( method_exists( $order, 'get_id' ) ) {
+			$notification->trigger( $order->get_id(), $order, $tracking_code );
+		} else {
+			$notification->trigger( $order->id, $order, $tracking_code );
+		}
 	}
+}
+
+/**
+ * Get tracking codes.
+ *
+ * @param  WC_Order|int $order Order ID or order data.
+ *
+ * @return array
+ */
+function wc_correios_get_tracking_codes( $order ) {
+	if ( is_numeric( $order ) ) {
+		$order = wc_get_order( $order );
+	}
+
+	if ( method_exists( $order, 'get_meta' ) ) {
+		$codes = $order->get_meta( '_correios_tracking_code' );
+	} else {
+		$codes = $order->correios_tracking_code;
+	}
+
+	return array_filter( explode( ',', $codes ) );
 }
 
 /**
  * Update tracking code.
  *
- * @param  int    $order_id      Order ID.
- * @param  string $tracking_code Tracking code.
+ * @param  WC_Order|int $order         Order ID or order data.
+ * @param  string       $tracking_code Tracking code.
+ * @param  bool         remove         If should remove the tracking code.
+ *
  * @return bool
  */
-function wc_correios_update_tracking_code( $order_id, $tracking_code ) {
+function wc_correios_update_tracking_code( $order, $tracking_code, $remove = false ) {
 	$tracking_code = sanitize_text_field( $tracking_code );
-	$current       = get_post_meta( $order_id, '_correios_tracking_code', true );
 
-	if ( '' !== $tracking_code && $tracking_code !== $current ) {
-		update_post_meta( $order_id, '_correios_tracking_code', $tracking_code );
+	// Get order instance.
+	if ( is_numeric( $order ) ) {
+		$order = wc_get_order( $order );
+	}
 
-		// Gets order data.
-		$order = wc_get_order( $order_id );
+	if ( method_exists( $order, 'get_meta' ) ) {
+		$tracking_codes = $order->get_meta( '_correios_tracking_code' );
+	} else {
+		$tracking_codes = $order->correios_tracking_code;
+	}
 
-		// Build tracking link.
-		$tracking_link = sprintf( '<a href="http://websro.correios.com.br/sro_bin/txect01$.QueryList?P_LINGUA=001&P_TIPO=001&P_COD_UNI=%1$s" target="_blank">%1$s</a>', $tracking_code );
+	$tracking_codes = array_filter( explode( ',', $tracking_codes ) );
+
+	if ( '' === $tracking_code ) {
+		if ( method_exists( $order, 'delete_meta_data' ) ) {
+			$order->delete_meta_data( '_correios_tracking_code' );
+			$order->save();
+		} else {
+			delete_post_meta( $order->id, '_correios_tracking_code' );
+		}
+
+		return true;
+	} elseif ( ! $remove && ! in_array( $tracking_code, $tracking_codes, true ) ) {
+		$tracking_codes[] = $tracking_code;
+
+		if ( method_exists( $order, 'update_meta_data' ) ) {
+			$order->update_meta_data( '_correios_tracking_code', implode( ',', $tracking_codes ) );
+			$order->save();
+		} else {
+			update_post_meta( $order->id, '_correios_tracking_code', implode( ',', $tracking_codes ) );
+		}
 
 		// Add order note.
-		$order->add_order_note( sprintf( __( 'Added a Correios tracking code: %s', 'woocommerce-correios' ), $tracking_link ) );
+		$order->add_order_note( sprintf( __( 'Added a Correios tracking code: %s', 'woocommerce-correios' ), $tracking_code ) );
 
 		// Send email notification.
 		wc_correios_trigger_tracking_code_email( $order, $tracking_code );
 
 		return true;
-	} elseif ( '' === $tracking_code ) {
-		delete_post_meta( $order_id, '_correios_tracking_code' );
+	} elseif ( $remove && in_array( $tracking_code, $tracking_codes, true ) ) {
+		if ( false !== ( $key = array_search( $tracking_code, $tracking_codes ) ) ) {
+			unset( $tracking_codes[ $key ] );
+		}
+
+		if ( method_exists( $order, 'update_meta_data' ) ) {
+			$order->update_meta_data( '_correios_tracking_code', implode( ',', $tracking_codes ) );
+			$order->save();
+		} else {
+			update_post_meta( $order->id, '_correios_tracking_code', implode( ',', $tracking_codes ) );
+		}
+
+		// Add order note.
+		$order->add_order_note( sprintf( __( 'Removed a Correios tracking code: %s', 'woocommerce-correios' ), $tracking_code ) );
 
 		return true;
 	}

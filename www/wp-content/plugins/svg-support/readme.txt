@@ -1,14 +1,14 @@
 === SVG Support ===
 Contributors: Benbodhi
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z9R7JERS82EQQ
-Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation
-Requires at least: 4.0
-Tested up to: 4.8-alpha-39948
-Stable tag: 2.3.6
+Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation, animate, js
+Requires at least: 4.8
+Tested up to: 4.9-alpha-41335
+Stable tag: 2.3.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Allow SVG file uploads using the WordPress Media Library uploader plus direct styling/animation of SVG elements using CSS/JS.
+Allow SVG file uploads using the WordPress Media Library uploader plus the ability to inline SVG files for direct styling/animation of SVG elements using CSS/JS.
 
 == Description ==
 
@@ -24,86 +24,85 @@ The main purpose of this is to allow styling of SVG elements. Usually your styli
 = Features =
 
 * SVG Support for your media library
+* Inline your SVG code
+* Works with the new Image Widget (WordPress 4.8+)
 * Style SVG elements directly using CSS
 * Super easy settings page with instructions
 * Restrict SVG upload ability to Administrators only
 * Set custom css target class
 * **Extremely Simple To Use**
 
-= Usage =
+== Usage ==
 
-Firstly, install SVG Support (this plugin) and activate it.
+Firstly, install and activate SVG Support (this plugin).
 
 Once activated, you can simply upload SVG images to your media library like any other file.
 
 As an administrator, you can go to the admin settings page 'Settings' > 'SVG Support' and restrict SVG file uploads to administrators only and even define a custom CSS class to target if you wish.
 
-If you only need simple functionality to upload SVG files, then you don't need to enable "Advanced Mode" which will make sure that the frontend script is not enqueued for performance and will hide the unnecessary settings.
+If you only need to upload SVG files to use as images, you don't need to enable "Advanced Mode”. Leaving it disabled ensures the frontend script is not enqueued and the unnecessary settings stay hidden.
 
-For advanced users, enable the "Advanced Mode" under Settings > SVG Support. Then you can embed your SVG images just like you would a standard image with the addition of adding (in text view) the class `"style-svg"` (or the custom class you defined) to your IMG tags that you want this plugin to swap out with your actual SVG code. You can also remove any other attributes from the tag and use CSS to manage the size. There is also a setting to automatically add your class to the IMG tag for you when you're inserting it in to a post or page.<br />
+**For advanced users:** Enable the "Advanced Mode" under Settings > SVG Support.
+
+With advanced mode enabled, you can embed your SVG images just like you would a standard image with the addition of adding (in text view) the class `"style-svg"` (or the custom class you defined) to your IMG tags that you want this plugin to swap out with your actual SVG code.
+
 For example:
 
 `<img class="style-svg" alt="alt-text" src="image-source.svg" />`
+
 or
+
 `<img class="your-custom-class" alt="alt-text" src="image-source.svg" />`
 
 The whole IMG tag element will now be dynamically replaced by the actual code of your SVG, making the inner content targetable.<br />
-This allows you to target elements within your SVG using CSS.
+This allows you to target elements within your SVG using CSS and JS.
+
+You can remove all other attributes from the IMG tag as it will disappear anyway.
+
+There’s a setting to automatically add your class to the IMG tag for you when you're inserting SVG’s in to a post or page, which also removes unnecessary tags.
+Since 2.3.11, you can force all SVG files to be rendered inline with a single checkbox. Additionally, you can now choose whether to use the minified or expanded version of the JS file.
 
 *Featured Images:* If a post/page is saved with your SVG as a featured image, a checkbox will display in the featured image meta box to allow you to render it inline (only if advanced mode is active).
 
-Please Note: You will need to set your own height and width in your CSS for SVG files to display correctly.
+Please Note: If your SVG isn’t showing, it’s likely that it is being displayed with 0 height and width. In this case, you will need to set your own height and width in your CSS for SVG files to display correctly.
 
-*If you are having any issues, please use the support tab and I will try my best to get back to you quickly*
+*If you're having any issues, please use the support tab and I will try my best to get back to you quickly*
 
-= Security =
+== Security ==
 
-As with allowing uploads of any files, there is potential risks involved. Only allow users to upload SVG files if you trust them. You have the option to restrict SVG usage to Administrators only from the settings page. By default, anyone with Media Library access or upload_files capability will be able to upload SVG files (that is Administrators, Authors and Editors).
+As with allowing uploads of any files, there is potential risks involved. Only allow users to upload SVG files if you trust them. You have the option to restrict SVG usage to Administrators only from the settings page. By default, anyone with Media Library access or upload_files capability will be able to upload SVG files (that is Administrators, Authors and Editors). Please note that SVG files are actually XML which would allow someone to inject malicious code if you're not careful with who has upload privileges.
 
-= Translations =
+== Feedback ==
 
-* US English - default, always included
-* AU English - WordPress Language Packs
-* NZ English - WordPress Language Packs
-* Serbian - translated and submitted by Ogi Djuraskovic from [first site guide](http://firstsiteguide.com/)
-* Spanish - translated and submitted by [Apasionados del Marketing](http://apasionados.es)
-
-= Feedback =
-
-* I am open to your suggestions and feedback - Thanks for using SVG Support!
-* Drop me a line [@benbodhi](http://twitter.com/benbodhi) or [@GoWebben](http://twitter.com/gowebben) on Twitter
-* Follow me on [my Facebook page](http://www.facebook.com/gowebben)
+* I'm open to your [suggestions and feedback](mailto:wp@benbodhi.com) - Thanks for using SVG Support!
+* Tag me [@benbodhi](https://twitter.com/benbodhi) or [@GoWebben](https://twitter.com/gowebben) on Twitter
+* Like & Follow [my Facebook page](https://www.facebook.com/gowebben)
 * Or circle [+GoWebben](https://plus.google.com/+Gowebben/) on Google Plus ;-)
 
-*Note:* This is the second plugin I have submitted to the WordPress repository, I hope you like it. Please take a moment to rate it and click 'works' under compatibility with your version of WordPress.<br />
-As always, feel free to send me any suggestions.
+*Note:* This is my second plugin on the WordPress repository, I hope you like it. Please take a moment to rate it and click 'works' under compatibility with your version of WordPress.
 
-== Installation ==
+== Translations ==
 
-To install this plugin:
+You can [contribute your translation here](https://translate.wordpress.org/projects/wp-plugins/svg-support).
+New to Translating WordPress? Read through the [Translator Handbook](https://make.wordpress.org/polyglots/handbook/tools/glotpress-translate-wordpress-org/) to get started.
 
-= via wp-admin =
-1. Upload the compressed version `svg-support.zip` through 'Plugins' > 'Add New' > 'Upload'
-2. Click 'Activate Plugin'
+== Additional Info ==
+**Idea Behind / Philosophy:** I needed an easy way to include SVG support in sites instead of having to copy and paste the code for each one. I also needed the ability to make odd shaped image links which SVG allows by embedding the links in the SVG file directly. I found a [really cool snippet](http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement) of jQuery written by Drew Baker a while ago and have used it (modified for WordPress) a few times until I was inspired to build it all into a plugin for ease of use and to share with others. Now styling SVG elements is super easy :)
 
-or
+Again, feel free to [shoot me suggestions](mailto:wp@benbodhi.com)
 
-1. Visit 'Plugins' > 'Add New'
-2. Type "SVG Support" into the search field
-3. Click 'Install Plugin' and confirm in the pop up
-4. Hover over SVG Support and click 'Activate Plugin'
+== Credits ==
+Plugin by [Benbodhi](https://benbodhi.com/) [@benbodhi](https://twitter.com/benbodhi) from [GoWebben](http://gowebben.com/) [@GoWebben](https://twitter.com/gowebben)
 
-
-= via FTP =
-1. Download plugin file and extract it
-2. Upload folder `svg-support` to your `/wp-content/plugins/` directory
-3. Activate the plugin through the 'Plugins' menu in WordPress
+Thanks to [ipokkel](https://wordpress.org/support/users/ipokkel/) for his suggestions and code contributions.
+Thanks to [laurosello](https://wordpress.org/support/users/laurosollero) for his code contribution.
+Logo By W3C, CC BY 2.5, [https://commons.wikimedia.org/w/index.php?curid=1895005](https://commons.wikimedia.org/w/index.php?curid=1895005).
 
 == Frequently Asked Questions ==
 
 = SVG not rendering inline since 2.3 update =
 
-SVG Support 2.3 includes a new settings "Advanced Mode". Users that were inlining SVG files need to make sure this setting is checked. Go to your dashboard > Settings > SVG Support and check "Advanced Mode". All of your original settings should still be there.
+SVG Support 2.3 includes a new settings section called "Advanced Mode". Users that were inlining SVG files need to make sure this setting is checked. Go to your dashboard > Settings > SVG Support and check "Advanced Mode". All of your original settings should still be there.
 
 = How do I disable the Javascript on the front end if I am not using inline SVG? =
 
@@ -129,6 +128,10 @@ If you installed multisite prior to WordPress 3.5, then you will need to remove 
 
 If you are using SVG Support with Visual Composer or any other page builders, you will need to make sure that you can add your own class to the image. The easiest way to do this is by using a simple text or code block in the builder to put your image code in to.
 
+= How do I get this to work with the Media Library Assistant plugin? =
+
+You need to add the mime type for svg and svgz to: "MLA Settings > Media Library Assistant > Uploads (tab)" and then it works.
+
 == Screenshots ==
 
 1. Basic Settings
@@ -136,7 +139,61 @@ If you are using SVG Support with Visual Composer or any other page builders, yo
 3. Featured Image checkbox to render SVG inline
 4. Inline SVG in the front end markup
 
+== Installation ==
+
+= via wp-admin =
+1. Visit 'Plugins' > 'Add New'
+2. Type "SVG Support" into the search field
+3. Click 'Install Plugin' and confirm in the pop up
+4. Click 'Activate Plugin'
+
+or
+
+1. Upload the compressed version `svg-support.zip` through 'Plugins' > 'Add New' > 'Upload'
+2. Click 'Activate Plugin'
+
+= via FTP =
+1. Download plugin zip and extract it on your computer
+2. Upload folder `svg-support` to your `/wp-content/plugins/` directory
+3. Activate the plugin through the 'Plugins' menu in WordPress
+
+
 == Changelog ==
+
+= 2.3.11 =
+
+* New: Feature to use expanded JS file rather than the minified/compressed version (useful for bundling and minifying using external caching plugins).
+* New: Force Inline SVG option. This feature allows you to force all of your SVG files to be rendered inline regardless of classes applied. Addresses issues where you can't add your own class to an image for some reason. For example, some page builder image elements. Also addresses changing your target class in the settings and needing to change all of your already embedded media, allowing you to simply force render rather than update all of the classes.
+* Modified the readme file and descriptions a bit.
+* Refined some code in functions/featured-image.php line 69 to address a warning.
+* Updated "Requires at least" tag to 4.8 (though it should still work in older versions, there was issues with core during the 4.7 phase and it's time for you to update anyway).
+
+= 2.3.10 =
+
+* Fixed missing links in settings page.
+
+= 2.3.9 =
+
+* Modified plugin action meta link for settings page.
+* Changed some language throughout the plugin.
+* Added recommendation for ShortPixel Image Optimization.
+* Added conditional to check post type supports thumbnail before setting meta data.
+
+= 2.3.8 =
+
+* Added some CSS to make sure featured images show on WooCommerce products, Sensei Courses and Lessons.
+* Fix: Auto insert class setting was stripping featured image HTML in some cases.
+
+= 2.3.7 =
+
+* Added WP version check to wrap mime fix function needed for WP v4.7.1 - v4.7.2.
+* Moved mime fix into mime type file.
+* Modified admin notice code to make it neater.
+* Fix: attachment-modal.php issues with some servers and external SVG files (props to @abstractourist & @malthejorgensen for providing fixes, as I could not consistently reproduce the issue).
+* Compatibility: Changed a line to provide wider compatibility, specifically for WordPress Bedrock on a LEMP stack.
+* Compatibility: Added another snippet to the JS to support IE11 (apparently people still use IE).
+* Added more FAQ's.
+
 
 = 2.3.6 =
 
@@ -220,7 +277,7 @@ If you are using SVG Support with Visual Composer or any other page builders, yo
 * Blocked direct access to PHP files.
 * Added SCSS support using CodeKit - minified CSS + JS files.
 * Updated spelling for incorrect function name.
-* Changed comment formatting across all files for conistency.
+* Changed comment formatting across all files for consistency.
 * Added link to $25 Free credit at GoWebben on the settings page.
 * Tested in WordPress 4.3.
 * Updated Readme file.
@@ -274,6 +331,26 @@ If you are using SVG Support with Visual Composer or any other page builders, yo
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 2.3.11 =
+
+* New Features and Fixes! Now you can force ALL of your SVG files (old and new) to be rendered inline in a single click with the new "Force Inline SVG" setting. You can also choose to use an expanded version of the inline JS if you want to minify it separately using a caching plugin or similar.
+
+= 2.3.10 =
+
+* Fixed missing links in settings page.
+
+= 2.3.9 =
+
+* Cleaned up some code and language, now stores less meta when not needed and added a plugin recommendation for Image Optimization.
+
+= 2.3.8 =
+
+* Adds better support for WooCommerce and Sensei. Fixes issue with featured images not showing up when auto insert class setting is on.
+
+= 2.3.7 =
+
+* Fixes issues with media library not loading for some, attachment-modal errors and adds some wider compatibility.
 
 = 2.3.6 =
 
@@ -376,28 +453,3 @@ IMPORTANT, MAJOR CHANGES, BACKUP BEFORE UPDATING: Users that are inlining SVG wi
 = 1.0 =
 
 * Initial Release.
-
-== Translations ==
-
-* English - default, always included
-* Serbian - translated and submitted by Ogi Djuraskovic from [first site guide]( http://firstsiteguide.com/)
-* *Your translation? - [Just send it in](mailto:wp@benbodhi.com)*
-
-*Note:* This plugin is localized/translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating I recommend ["Loco Translate" plugin](https://wordpress.org/plugins/loco-translate/) and for validating the ["Poedit Editor"](http://www.poedit.net/).
-
-== Additional Info ==
-**Idea Behind / Philosophy:** I needed an easy way to include SVG support in sites instead of having to copy and paste the code for each one. I found a [really cool snippet](http://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement) of jQuery written by Drew Baker a while ago and have used it (modified for WordPress) a few times until I was inspired to build it all into a plugin for ease of use and to share with others. Now styling SVG elements is super easy :)
-
-== Future Features ==
-* Option to choose which user ID can access the settings
-* Option to choose specific user ID's for usage restriction (both helpful if you have multiple administrators)
-
-Again, feel free to [shoot me suggestions](mailto:wp@benbodhi.com)
-
-== Credits ==
-Plugin by [Benbodhi Mantra](http://benbodhi.com/) [@benbodhi](http://twitter.com/benbodhi) from [GoWebben](http://gowebben.com/) [@GoWebben](http://twitter.com/gowebben)
-
-Thanks to [laurosello](https://wordpress.org/support/profile/laurosollero) for his code contribution in svg-inline.php.
-Thanks to Ogi Djuraskovic from [first site guide]( http://firstsiteguide.com/) for providing the Serbian translation!
-Thanks to [Apasionados del Marketing](http://apasionados.es) for the Spanish translation.
-Logo By W3C, CC BY 2.5, [https://commons.wikimedia.org/w/index.php?curid=1895005](https://commons.wikimedia.org/w/index.php?curid=1895005).

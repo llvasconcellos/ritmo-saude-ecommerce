@@ -1,0 +1,102 @@
+.play-overlay{
+        background: rgba(0, 0, 0, 0) url("<?php echo plugins_url();?>/woocommerce-embed-videos-to-product-image-gallery/assets/play.png") no-repeat scroll right center / 35px auto;
+        height: 61px;
+        margin: -65px 20px 0;
+        position: relative;
+        right: 0;
+        z-index: 10;
+    }
+    .woocommerce #content div.product div.thumbnails a, .woocommerce div.product div.thumbnails a, .woocommerce-page #content div.product div.thumbnails a, .woocommerce-page div.product div.thumbnails a {width:100% !important;}
+
+    body {
+  margin-top: 50px;
+}
+.pswp__zoom-wrap {
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+.wrapper {
+  line-height: 0;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 1045;
+}
+
+video {
+  width: 100% !important;
+  height: auto !important;
+}
+.emoji-search-icon{    display: inline-block !important;
+    position: absolute;
+    right: 16px;
+    z-index: 9999;
+    top: 10px;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
+
+.emoji-search-icon:before{  content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    box-sizing: content-box;
+}
+
+.emoji-search-icon:after{
+  content: "";
+    display: block;
+    width: 2px;
+    height: 8px;
+    background: #000;
+    border-radius: 6px;
+    position: absolute;
+    top: 19px;
+    left: 22px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: content-box;
+
+}
+figure{cursor: pointer;}
+.pswp__container{ z-index:999;}
+.pswp__ui{ z-index:0;}
+div.video-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.iframe{
+  width: 200px;
+}
+div.video-wrapper,
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+body{
+    display: table;
+    height:100%;
+    width: 100%;
+}

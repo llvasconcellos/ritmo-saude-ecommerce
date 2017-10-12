@@ -1,15 +1,30 @@
 <?php
 /**
  * Plugin Name: WooCommerce Extra Checkout Fields for Brazil
- * Plugin URI: https://github.com/claudiosmweb/woocommerce-extra-checkout-fields-for-brazil
- * Description: Adiciona novos campos para Pessoa Física ou Jurídica, Data de Nascimento, Sexo, Número, Bairro e Celular. Além de máscaras em campos, aviso de e-mail incorreto e auto preenchimento dos campos de endereço pelo CEP.
- * Version: 3.4.6
- * Author: Claudio Sanches
- * Author URI: http://claudiosmweb.com/
+ * Plugin URI:  https://github.com/claudiosanches/woocommerce-extra-checkout-fields-for-brazil
+ * Description: Adds new checkout fields, field masks and other things necessary to properly work with WooCommerce on Brazil.
+ * Author:      Claudio Sanches
+ * Author URI:  https://claudiosanches.com
+ * Version:     3.6.0
+ * License:     GPLv2 or later
  * Text Domain: woocommerce-extra-checkout-fields-for-brazil
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
+ *
+ * WooCommerce Extra Checkout Fields for Brazil is free software: you can
+ * redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation,
+ * either version 2 of the License, or any later version.
+ *
+ * WooCommerce Extra Checkout Fields for Brazil is distributed in the hope
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with WooCommerce Extra Checkout Fields for Brazil. If not, see
+ * <https://www.gnu.org/licenses/gpl-2.0.txt>.
+ *
+ * @package Extra_Checkout_Fields_For_Brazil
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,7 +43,7 @@ class Extra_Checkout_Fields_For_Brazil {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.4.6';
+	const VERSION = '3.6.0';
 
 	/**
 	 * Instance of this class.
@@ -51,6 +66,7 @@ class Extra_Checkout_Fields_For_Brazil {
 			}
 
 			$this->includes();
+			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 		} else {
 			add_action( 'admin_notices', array( $this, 'woocommerce_fallback_notice' ) );
 		}
@@ -63,7 +79,7 @@ class Extra_Checkout_Fields_For_Brazil {
 	 */
 	public static function get_instance() {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self;
 		}
 
@@ -93,20 +109,34 @@ class Extra_Checkout_Fields_For_Brazil {
 	 * Includes.
 	 */
 	private function includes() {
-		include_once 'includes/class-wc-ecfb-formatting.php';
-		include_once 'includes/class-wc-ecfb-front-end.php';
-		include_once 'includes/class-wc-ecfb-plugins-support.php';
-		include_once 'includes/class-wc-ecfb-api.php';
+		include_once dirname( __FILE__ ) . '/includes/class-extra-checkout-fields-for-brazil-formatting.php';
+		include_once dirname( __FILE__ ) . '/includes/class-extra-checkout-fields-for-brazil-front-end.php';
+		include_once dirname( __FILE__ ) . '/includes/class-extra-checkout-fields-for-brazil-integrations.php';
+		include_once dirname( __FILE__ ) . '/includes/class-extra-checkout-fields-for-brazil-api.php';
 	}
 
 	/**
 	 * Admin includes.
 	 */
 	private function admin_includes() {
-		include_once 'includes/admin/class-wc-ecfb-admin.php';
-		include_once 'includes/admin/class-wc-ecfb-settings.php';
-		include_once 'includes/admin/class-wc-ecfb-order.php';
-		include_once 'includes/admin/class-wc-ecfb-customer.php';
+		include_once dirname( __FILE__ ) . '/includes/admin/class-extra-checkout-fields-for-brazil-admin.php';
+		include_once dirname( __FILE__ ) . '/includes/admin/class-extra-checkout-fields-for-brazil-settings.php';
+		include_once dirname( __FILE__ ) . '/includes/admin/class-extra-checkout-fields-for-brazil-order.php';
+		include_once dirname( __FILE__ ) . '/includes/admin/class-extra-checkout-fields-for-brazil-customer.php';
+	}
+
+	/**
+	 * Action links.
+	 *
+	 * @param  array $links Default plugin links.
+	 *
+	 * @return array
+	 */
+	public function plugin_action_links( $links ) {
+		$plugin_links   = array();
+		$plugin_links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=woocommerce-extra-checkout-fields-for-brazil' ) ) . '">' . __( 'Settings', 'woocommerce-extra-checkout-fields-for-brazil' ) . '</a>';
+
+		return array_merge( $plugin_links, $links );
 	}
 
 	/**

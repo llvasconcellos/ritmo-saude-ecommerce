@@ -4,7 +4,7 @@
  *
  * @package WooCommerce_Correios/Classes
  * @since   3.0.0
- * @version 3.0.0
+ * @version 3.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,19 +35,6 @@ class WC_Correios_Package {
 	}
 
 	/**
-	 * Replace comma by dot.
-	 *
-	 * @param  mixed $value Value to fix.
-	 *
-	 * @return mixed
-	 */
-	private function fix_format( $value ) {
-		$value = str_replace( ',', '.', $value );
-
-		return $value;
-	}
-
-	/**
 	 * Extracts the weight and dimensions from the package.
 	 *
 	 * @return array
@@ -66,10 +53,10 @@ class WC_Correios_Package {
 
 			if ( $qty > 0 && $product->needs_shipping() ) {
 
-				$_height = wc_get_dimension( $this->fix_format( $product->height ), 'cm' );
-				$_width  = wc_get_dimension( $this->fix_format( $product->width ), 'cm' );
-				$_length = wc_get_dimension( $this->fix_format( $product->length ), 'cm' );
-				$_weight = wc_get_weight( $this->fix_format( $product->weight ), 'kg' );
+				$_height = wc_get_dimension( (float) $product->get_length(), 'cm' );
+				$_width  = wc_get_dimension( (float) $product->get_width(), 'cm' );
+				$_length = wc_get_dimension( (float) $product->get_height(), 'cm' );
+				$_weight = wc_get_weight( (float) $product->get_weight(), 'kg' );
 
 				$height[ $count ] = $_height;
 				$width[ $count ]  = $_width;
@@ -111,16 +98,11 @@ class WC_Correios_Package {
 	 */
 	protected function cubage_total( $height, $width, $length ) {
 		// Sets the cubage of all products.
-		$all         = array();
 		$total       = 0;
 		$total_items = count( $height );
 
 		for ( $i = 0; $i < $total_items; $i++ ) {
-			$all[ $i ] = $height[ $i ] * $width[ $i ] * $length[ $i ];
-		}
-
-		foreach ( $all as $value ) {
-			$total += $value;
+			$total += $height[ $i ] * $width[ $i ] * $length[ $i ];
 		}
 
 		return $total;
@@ -160,7 +142,7 @@ class WC_Correios_Package {
 		$root         = 0;
 		$biggest      = max( $max_values );
 
-		if ( 0 !== $cubage_total && 0 !== $biggest ) {
+		if ( 0 !== $cubage_total && 0 < $biggest ) {
 			// Dividing the value of scaling of all products.
 			// With the measured value of greater.
 			$division = $cubage_total / $biggest;

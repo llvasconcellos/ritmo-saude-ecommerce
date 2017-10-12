@@ -21,13 +21,13 @@
 // ** Configurações do MySQL - Você pode pegar estas informações
 // com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define('DB_NAME', 'ritmosaude');
+define('DB_NAME', 'ritmosau_wp');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'root');
+define('DB_USER', 'ritmosau_wp');
 
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', 'vertrigo');
+define('DB_PASSWORD', '9n5FtC7tnp');
 
 /** Nome do host do MySQL */
 define('DB_HOST', 'localhost');
