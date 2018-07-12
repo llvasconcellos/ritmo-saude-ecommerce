@@ -789,7 +789,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 		echo '</div><!-- .container -->';
 
 		echo '</section><!-- .home-product-slider -->';
-	}
+	} 
 
 	get_footer();
 

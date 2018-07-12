@@ -409,8 +409,12 @@ abstract class WC_Product_Importer implements WC_Importer_Interface {
 			$parent_attributes = $this->get_variation_parent_attributes( $data['raw_attributes'], $parent );
 
 			foreach ( $data['raw_attributes'] as $attribute ) {
+				$attribute_id = 0;
+
 				// Get ID if is a global attribute.
-				$attribute_id = wc_attribute_taxonomy_id_by_name( $attribute['name'] );
+				if ( ! empty( $attribute['taxonomy'] ) ) {
+					$attribute_id = $this->get_attribute_taxonomy_id( $attribute['name'] );
+				}
 
 				if ( $attribute_id ) {
 					$attribute_name = wc_attribute_taxonomy_name_by_id( $attribute_id );
@@ -500,25 +504,38 @@ abstract class WC_Product_Importer implements WC_Importer_Interface {
 		}
 
 		$id         = 0;
-		$upload_dir = wp_upload_dir();
+		$upload_dir = wp_upload_dir( null, false );
 		$base_url   = $upload_dir['baseurl'] . '/';
 
-		// Check first if attachment is on WordPress uploads directory.
-		if ( false !== strpos( $url, $base_url ) ) {
-			// Search for yyyy/mm/slug.extension.
+		// Check first if attachment is inside the WordPress uploads directory, or we're given a filename only.
+		if ( false !== strpos( $url, $base_url ) || false === strpos( $url, '://' ) ) {
+			// Search for yyyy/mm/slug.extension or slug.extension - remove the base URL.
+			$file = str_replace( $base_url, '', $url );
 			$args = array(
 				'post_type'   => 'attachment',
 				'post_status' => 'any',
 				'fields'      => 'ids',
 				'meta_query'  => array(
+					'relation' => 'OR',
 					array(
-						'value'   => str_replace( $base_url, '', $url ),
-						'compare' => 'LIKE',
 						'key'     => '_wp_attached_file',
+						'value'   => '^' . $file,
+						'compare' => 'REGEXP',
+					),
+					array(
+						'key'     => '_wp_attached_file',
+						'value'   => '/' . $file,
+						'compare' => 'LIKE',
+					),
+					array(
+						'key'     => '_wc_attachment_source',
+						'value'   => '/' . $file,
+						'compare' => 'LIKE',
 					),
 				),
 			);
 		} else {
+			// This is an external URL, so compare to source.
 			$args = array(
 				'post_type'   => 'attachment',
 				'post_status' => 'any',
@@ -565,7 +582,7 @@ abstract class WC_Product_Importer implements WC_Importer_Interface {
 	 * Get attribute taxonomy ID from the imported data.
 	 * If does not exists register a new attribute.
 	 *
-	 * @param  string $name Attribute name.
+	 * @param  string $raw_name Attribute name.
 	 * @return int
 	 */
 	protected function get_attribute_taxonomy_id( $raw_name ) {

@@ -416,7 +416,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param string $value Value to set.
 	 */
 	public function set_subtotal( $value ) {
-		$this->totals['subtotal'] = wc_format_decimal( $value );
+		$this->totals['subtotal'] = wc_format_decimal( $value, wc_get_price_decimals() );
 	}
 
 	/**
@@ -446,7 +446,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param string $value Value to set.
 	 */
 	public function set_discount_tax( $value ) {
-		$this->totals['discount_tax'] = wc_format_decimal( $value );
+		$this->totals['discount_tax'] = wc_round_tax_total( $value );
 	}
 
 	/**
@@ -456,7 +456,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param string $value Value to set.
 	 */
 	public function set_shipping_total( $value ) {
-		$this->totals['shipping_total'] = wc_format_decimal( $value );
+		$this->totals['shipping_total'] = wc_format_decimal( $value, wc_get_price_decimals() );
 	}
 
 	/**
@@ -476,7 +476,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param string $value Value to set.
 	 */
 	public function set_cart_contents_total( $value ) {
-		$this->totals['cart_contents_total'] = wc_format_decimal( $value );
+		$this->totals['cart_contents_total'] = wc_format_decimal( $value, wc_get_price_decimals() );
 	}
 
 	/**
@@ -496,7 +496,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param string $value Value to set.
 	 */
 	public function set_total( $value ) {
-		$this->totals['total'] = wc_format_decimal( $value );
+		$this->totals['total'] = wc_format_decimal( $value, wc_get_price_decimals() );
 	}
 
 	/**
@@ -516,7 +516,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @param string $value Value to set.
 	 */
 	public function set_fee_total( $value ) {
-		$this->totals['fee_total'] = wc_format_decimal( $value );
+		$this->totals['fee_total'] = wc_format_decimal( $value, wc_get_price_decimals() );
 	}
 
 	/**
@@ -1495,9 +1495,11 @@ class WC_Cart extends WC_Legacy_Cart {
 					$users_query = new WP_User_Query( array(
 						'fields'       => 'ID',
 						'meta_query'   => array(
-							'key'      => '_billing_email',
-							'value'    => $check_emails,
-							'compare'  => 'IN',
+							array(
+								'key'      => '_billing_email',
+								'value'    => $check_emails,
+								'compare'  => 'IN',
+							),
 						),
 					) );
 
@@ -1686,10 +1688,6 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @return bool
 	 */
 	public function remove_coupon( $coupon_code ) {
-		if ( ! wc_coupons_enabled() ) {
-			return false;
-		}
-
 		$coupon_code  = wc_format_coupon_code( $coupon_code );
 		$position     = array_search( $coupon_code, $this->get_applied_coupons(), true );
 
@@ -1754,9 +1752,8 @@ class WC_Cart extends WC_Legacy_Cart {
 	public function get_fees() {
 		$fees = $this->fees_api()->get_fees();
 
-		if ( ! empty( $this->fees ) ) {
-			wc_deprecated_function( 'WC_Cart->fees', '3.2', sprintf( 'Fees should only be added through the Fees API (%s)', 'WC_Cart::add_fee()' ) );
-			$fees = $fees + $this->fees;
+		if ( property_exists( $this, 'fees' ) ) {
+			$fees = $fees + (array) $this->fees;
 		}
 		return $fees;
 	}
@@ -1767,7 +1764,7 @@ class WC_Cart extends WC_Legacy_Cart {
 	 * @return string formatted price
 	 */
 	public function get_total_ex_tax() {
-		return apply_filters( 'woocommerce_cart_total_ex_tax', wc_price( max( 0, $this->get_total( 'edit' ) - $this->get_cart_contents_tax() - $this->get_shipping_tax() ) ) );
+		return apply_filters( 'woocommerce_cart_total_ex_tax', wc_price( max( 0, $this->get_total( 'edit' ) - $this->get_total_tax() ) ) );
 	}
 
 	/**
