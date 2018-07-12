@@ -197,7 +197,7 @@ if ( ! class_exists( 'SS_WC_Settings_MailChimp' ) ) {
 			// Check required fields
 			if ( $this->is_enabled() && ! $this->has_api_key() ) {
 				// Show notice
-				echo $this->get_message( sprintf( __( 'WooCommerce MailChimp error: Plugin is enabled but no api key provided. Please enter your api key <a href="%s">here</a>.', 'woocommerce-mailchimp' ), WOOCOMMERCE_MAILCHIMP_SETTINGS_URL )
+				echo $this->get_message( sprintf( __( 'WooCommerce MailChimp error: Plugin is enabled but no api key provided. Please enter your api key <a href="%s">here</a>.', 'woocommerce-mailchimp' ), SS_WC_MAILCHIMP_SETTINGS_URL )
 				);
 			}
 		}
@@ -452,6 +452,7 @@ if ( ! class_exists( 'SS_WC_Settings_MailChimp' ) ) {
 						'options'     => array(
 							'woocommerce_checkout_before_customer_details' => __( 'Above customer details', 'woocommerce-mailchimp' ),
 							'woocommerce_checkout_after_customer_details' => __( 'Below customer details', 'woocommerce-mailchimp' ),
+							'woocommerce_checkout_before_order_review' => __( 'Order review above cart/product table.', 'woocommerce-mailchimp' ),
 							'woocommerce_review_order_before_submit' => __( 'Order review above submit', 'woocommerce-mailchimp' ),
 							'woocommerce_review_order_after_submit' => __( 'Order review below submit', 'woocommerce-mailchimp' ),
 							'woocommerce_review_order_before_order_total' => __( 'Order review above total', 'woocommerce-mailchimp' ),
@@ -613,15 +614,15 @@ if ( ! class_exists( 'SS_WC_Settings_MailChimp' ) ) {
 			if ( $this->mailchimp() && $this->has_list() ) {
 				$interest_groups = $this->mailchimp()->get_interest_categories_with_interests( $this->get_list() );
 			} else {
-				return false;
+				return array();
 			}
 
 			if ( $interest_groups === false ) {
 
-				add_action( 'admin_notices',         array( $this, 'mailchimp_api_error_msg' ) );
-				add_action( 'network_admin_notices', array( $this, 'mailchimp_api_error_msg' ) );
+				// add_action( 'admin_notices',         array( $this, 'mailchimp_api_error_msg' ) );
+				// add_action( 'network_admin_notices', array( $this, 'mailchimp_api_error_msg' ) );
 
-				return false;
+				return array();
 
 			}
 
@@ -646,7 +647,7 @@ if ( ! class_exists( 'SS_WC_Settings_MailChimp' ) ) {
 		public function mailchimp_api_error_msg() {
 			echo $this->get_message(
 				sprintf( __( 'Unable to load lists from MailChimp: (%s) %s. ', 'woocommerce-mailchimp' ), $this->mailchimp()->get_error_code(), $this->mailchimp()->get_error_message() ) .
-				sprintf( __( 'Please check your Settings %ssettings%s.', 'woocommerce-mailchimp' ), '<a href="' . WOOCOMMERCE_MAILCHIMP_SETTINGS_URL .'">', '</a>' )
+				sprintf( __( 'Please check your Settings %ssettings%s.', 'woocommerce-mailchimp' ), '<a href="' . SS_WC_MAILCHIMP_SETTINGS_URL .'">', '</a>' )
 			);
 		} //end function mailchimp_api_error_msg
 

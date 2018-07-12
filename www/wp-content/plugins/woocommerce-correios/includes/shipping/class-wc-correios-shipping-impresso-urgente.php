@@ -19,7 +19,7 @@ class WC_Correios_Shipping_Impresso_Urgente extends WC_Correios_Shipping_Impress
 	/**
 	 * Weight limit for this shipping method.
 	 *
-	 * Value based in 01/02/2017 from:
+	 * Value based in 01/02/2018 from:
 	 * https://www.correios.com.br/para-voce/consultas-e-solicitacoes/precos-e-prazos/servicos-nacionais_pasta/impresso-normal
 	 *
 	 * @var float
@@ -41,24 +41,24 @@ class WC_Correios_Shipping_Impresso_Urgente extends WC_Correios_Shipping_Impress
 
 	/**
 	 * Get costs.
-	 * Costs based in 01/02/2017 from:
+	 * Costs based in 01/02/2018 from:
 	 * https://www.correios.com.br/para-voce/consultas-e-solicitacoes/precos-e-prazos/servicos-nacionais_pasta/impresso-normal
 	 *
 	 * @return array
 	 */
 	protected function get_costs() {
 		return apply_filters( 'woocommerce_correios_impresso_urgente_costs', array(
-			'20'  => 1.50,
-			'50'  => 2.10,
-			'100' => 2.85,
-			'150' => 3.50,
-			'200' => 4.10,
-			'250' => 4.80,
-			'300' => 5.40,
-			'350' => 6.05,
-			'400' => 6.60,
-			'450' => 7.30,
-			'500' => 7.90,
+			'20'  => 1.55,
+			'50'  => 2.15,
+			'100' => 2.95,
+			'150' => 3.60,
+			'200' => 4.20,
+			'250' => 4.95,
+			'300' => 5.55,
+			'350' => 6.20,
+			'400' => 6.80,
+			'450' => 7.50,
+			'500' => 8.10,
 		), $this->id, $this->instance_id );
 	}
 
@@ -84,11 +84,13 @@ class WC_Correios_Shipping_Impresso_Urgente extends WC_Correios_Shipping_Impress
 			return 0;
 		}
 
-		// Get the package weight and validate.
+		// Get the package weight, validate and add extra weight.
 		$weight = $this->get_package_weight( $package );
 		if ( false === $weight ) {
 			return 0;
 		}
+
+		$weight += wc_format_decimal($this->extra_weight);
 
 		if ( $weight <= $this->shipping_method_weight_limit ) {
 			foreach ( $this->get_costs() as $cost_weights => $costs ) {

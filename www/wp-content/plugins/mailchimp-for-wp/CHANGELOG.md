@@ -1,6 +1,139 @@
 Changelog
 =========
 
+#### 4.2.4 - July 9, 2018
+
+**Improvements**
+
+- Ensure type-safety on some global variables.
+- Stop showing trashed forms immediately.
+- Pre-check MailChimp list when creating a new form if there is only 1 list.
+- Send `null` for unknown values in usage tracking data (only when opted-in).
+
+**Additions**
+
+- Add methods for accessing MailChimp's e-commerce promo code endpoints to API class.
+
+
+#### 4.2.3 - June 11, 2018
+
+**Fixes**
+
+- Don't wrap "agree to terms" input in hyperlink element.
+- Allow [ENTER] key again after field helper overlay is closed.
+
+**Improvements**
+
+- Fallback to meta-refresh if redirect fails because of "headers already sent" error.
+
+
+
+#### 4.2.2 - May 22, 2018
+
+**Fixes**
+
+- Events Manager integration was not working with logged-in users.
+- Form preview URL should respect admin HTTP(S) scheme.
+- Removed use of PHP 5.4 function.
+
+**Improvements**
+
+- Add "agree to terms" checkbox to field helper.
+
+**Additions**
+
+- Add filter `mc4wp_http_request_args`.
+
+
+#### 4.2.1 - April 11, 2018
+
+**Fixes**
+
+- Namespace usage warning when running PHP 5.2
+
+**Improvements**
+
+- Remove obsolete `type` attribute from all `<script>` tags printed by the plugin.
+- Improved tooltips on settings pages.
+- Do not pre-check integration checkboxes by default. 
+- Add textual warnings to settings that may affect [GDPR compliance](https://kb.mc4wp.com/gdpr-compliance/).
+- Update translation files.
+
+#### 4.2 - March 5, 2018
+
+**Additions**
+
+- Live form preview while editing form. 
+
+**Improvements**
+
+- Improved [conditional fields logic](https://kb.mc4wp.com/conditional-fields-elements/).
+- Debug log now includes request & response data.
+- [Form JavaScript events](https://kb.mc4wp.com/javascript-form-events/) are fired in an isolated thread now, to prevent errors in event callbacks from breaking form functionality.
+- Don't send empty field values to MailChimp when updating subscribers.
+- Show interest grouping ID in list overview on settings page.
+
+**Fixes**
+
+- Ninja Forms export checkbox would always state "checked" when form contained a MailChimp sign-up checkbox.
+
+
+
+#### 4.1.15 - February 7, 2018
+
+**Fixes**
+
+- Dropdown fields with special characters were not properly passed to MailChimp.
+- Interest groups with an all-numeric ID were not properly passed to MailChimp.
+
+**Improvements**
+
+- Various minor code optimizations
+- Do not redirect when showing "already subscribed" warning.
+- Improved scroll to form handling after a form is submitted without AJAX.
+
+
+#### 4.1.14 - January 8, 2018
+
+**Fixes**
+
+- Validate method was incorrectly checking required array fields.
+
+**Improvements**
+
+- Wrap some missing strings in translate calls. Thanks [morlor](https://github.com/morloi).
+- Make it clear that redirecting after successful form submissions will not show the "subscribed" message.
+
+
+
+#### 4.1.13 - December 28, 2017
+
+**Fixes**
+
+- Array to string conversion in default form messages.
+
+**Additions**
+
+- Allow marking Gravity Forms sign-up checkbox as a required field.
+
+
+#### 4.1.12 - December 11, 2017
+
+**Fixes**
+
+- Ninja Forms double opt-in setting was incorrectly inversed.
+
+**Improvements**
+
+- Simplified form processing & notice logic.
+- Prevent 404 errors by proactively replacing lowercased `name="name"` input attributes.
+- Updated JavaScript dependencies.
+
+**Additions**
+
+- Integration for AffiliateWP.
+
+
 #### 4.1.11 - November 2, 2017
 
 **Fixes**

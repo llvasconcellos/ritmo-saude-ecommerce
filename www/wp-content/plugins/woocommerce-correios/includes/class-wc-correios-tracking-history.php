@@ -45,7 +45,10 @@ class WC_Correios_Tracking_History {
 	 * @return array
 	 */
 	protected function get_user_data() {
-		$user_data = apply_filters( 'woocommerce_correios_tracking_user_data', array( 'login' => 'ECT', 'password' => 'SRO' ) );
+		$user_data = apply_filters( 'woocommerce_correios_tracking_user_data', array(
+			'login'    => 'ECT',
+			'password' => 'SRO',
+		) );
 
 		return $user_data;
 	}
@@ -65,8 +68,8 @@ class WC_Correios_Tracking_History {
 	/**
 	 * Access API Correios.
 	 *
-	 * @param  array $tracking_code Tracking code.
-	 *
+	 * @throws Exception When username or password fails.
+	 * @param  array $tracking_codes Tracking codes.
 	 * @return array
 	 */
 	protected function get_tracking_history( $tracking_codes ) {
@@ -106,9 +109,15 @@ class WC_Correios_Tracking_History {
 					}
 					$objects = $_objects;
 
-				// Handle single object.
 				} elseif ( is_object( $response->return->objeto ) ) {
+					// Handle single object.
 					$objects = array( $response->return->objeto );
+
+					// Check for invalid username and passowrd.
+					if ( isset( $objects[0]->numero ) && 'Erro' === $objects[0]->numero ) {
+						$objects = null; // Reset values to disable tracking table.
+						throw new Exception( 'Invalid username or password!' );
+					}
 
 					// Fix when return only last event.
 					if ( is_object( $objects[0]->evento ) ) {
@@ -116,13 +125,12 @@ class WC_Correios_Tracking_History {
 					}
 				}
 			}
-
 		} catch ( Exception $e ) {
 			$this->logger( sprintf( 'An error occurred while trying to fetch the tracking history for "%s": %s', implode( ', ', $tracking_codes ), $e->getMessage() ) );
 		}
 
 		if ( ! is_null( $objects ) ) {
-			$this->logger( sprintf( 'Tracking history found successfully: %s', print_r( $objects, true ) ) );
+			$this->logger( sprintf( 'Tracking history found successfully: %s', wc_print_r( $objects, true ) ) );
 		}
 
 		return apply_filters( 'woocommerce_correios_tracking_objects', $objects, $tracking_codes );

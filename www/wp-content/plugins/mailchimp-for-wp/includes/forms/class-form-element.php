@@ -90,19 +90,23 @@ class MC4WP_Form_Element {
 			$hidden_fields .= '<input type="hidden" name="_mc4wp_lists" value="'. esc_attr( $lists_string ) . '" />';
 		}
 
+		// was "lists" parameter passed in shortcode arguments?
+		if( ! empty( $this->config['email_type'] ) ) {
+			$hidden_fields .= '<input type="hidden" name="_mc4wp_email_type" value="'. esc_attr( $this->config['email_type'] ) . '" />';
+		}
+
 		return (string) $hidden_fields;
 	}
 
 	/**
-	 * Get HTML string for a message, including wrapper element.
+	 * Get HTML string for a notice, including wrapper element.
 	 *
-	 * @param string $key
+	 * @param MC4WP_Form_Notice $notice
 	 *
 	 * @return string
 	 */
-	protected function get_message_html( $key ) {
-		$message = $this->form->get_message( $key );
-		$html = sprintf( '<div class="mc4wp-alert mc4wp-%s"><p>%s</p></div>', esc_attr( $message->type ), $message->text );
+	protected function get_notice_html( MC4WP_Form_Notice $notice ) {
+		$html = sprintf( '<div class="mc4wp-alert mc4wp-%s"><p>%s</p></div>', esc_attr( $notice->type ), $notice->text );
 		return $html;
 	}
 
@@ -118,8 +122,8 @@ class MC4WP_Form_Element {
 		$form = $this->form;
 
 		if( $this->is_submitted || $force_show ) {
-			foreach( $this->form->messages as $key ) {
-				$html .= $this->get_message_html( $key );
+			foreach( $this->form->notices as $notice ) {
+				$html .= $this->get_notice_html( $notice );
 			}
 		}
 
@@ -279,6 +283,11 @@ class MC4WP_Form_Element {
 			$this->config = $config;
 		}
 
+		// return empty string if form is in trash
+		if( $this->form->status !== 'publish' ) {
+			return '';
+		}
+
 		// Start building content string
 		$opening_html = '<!-- MailChimp for WordPress v' . MC4WP_VERSION . ' - https://wordpress.org/plugins/mailchimp-for-wp/ -->';
 		$opening_html .= '<form '. $this->get_form_element_attributes() .'>';
@@ -293,9 +302,9 @@ class MC4WP_Form_Element {
 
 			// add HTML for fields + wrapper element.
 			$fields = '<div class="mc4wp-form-fields">' .
-			            $this->get_visible_fields() .
-			            $this->get_hidden_fields() .
-						'</div>';
+			    $this->get_visible_fields() .
+				'</div>' . 
+				$this->get_hidden_fields();
 		}
 
 		// concatenate everything

@@ -3,8 +3,9 @@ Contributors: saintsystems, anderly
 Donate link: http://ssms.us/hVdk
 Tags: woocommerce, mailchimp
 Requires at least: 3.5.1
-Tested up to: 4.8.1
-Stable tag: 2.1.2
+Tested up to: 4.9.5
+WC tested up to: 3.3.1
+Stable tag: 2.1.12
 License: GPLv3
 
 Simple and flexible MailChimp integration for WooCommerce.
@@ -94,7 +95,7 @@ Also, if you enjoy using the software [we'd love it if you could give us a revie
 
 == Installation ==
 
-1. Upload or extract the `woocommerce-mailchimp` folder to your site's `/wp-content/plugins/` directory. You can also use the *Add new- option found in the *Plugins- menu in WordPress.  
+1. Upload or extract the `woocommerce-mailchimp` folder to your site's `/wp-content/plugins/` directory. You can also use the *Add new- option found in the *Plugins- menu in WordPress.
 2. Enable the plugin from the *Plugins- menu in WordPress.
 
 = Usage =
@@ -112,6 +113,34 @@ Also, if you enjoy using the software [we'd love it if you could give us a revie
 2. WooCommerce MailChimp troubleshooting screen.
 
 == Changelog ==
+
+#### 2.1.12 - May 22, 2018
+- WPML Opt-in label fix.
+- Plugin now loads after `plugins_loaded` action hook.
+
+#### 2.1.11 - April 27, 2018
+- Fix erroneous error saying can't load lists when no interest groups for list.
+
+#### 2.1.10 - February 12, 2018
+- Added WooCommerce tested up to header
+
+#### 2.1.9 - February 1, 2018
+- Added new opt-in checkbox location for order review above cart/product table.
+
+#### 2.1.8 - February 1, 2018
+- Fix "Invalid argument supplied for foreach" warning in settings (Issue #21)
+
+#### 2.1.6 - January 26, 2018
+- Restore opt-in checkbox location and add params to filter to allow easier adjustment of its placement.
+
+#### 2.1.5 - January 25, 2018
+- Move opt-in checkbox before associated label
+
+#### 2.1.4 - December 20, 2017
+- Tested up to WordPres 4.9.1
+
+#### 2.1.3 - December 19, 2017
+- Small fix to show MailChimp API error message in UI.
 
 #### 2.1.2 - August 25, 2017
 - Fix retrieval of mailchimp lists with numeric ids.

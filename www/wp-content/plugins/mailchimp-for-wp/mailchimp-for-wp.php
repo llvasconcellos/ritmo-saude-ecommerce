@@ -3,7 +3,7 @@
 Plugin Name: MailChimp for WordPress
 Plugin URI: https://mc4wp.com/#utm_source=wp-plugin&utm_medium=mailchimp-for-wp&utm_campaign=plugins-page
 Description: MailChimp for WordPress by ibericode. Adds various highly effective sign-up methods to your site.
-Version: 4.1.11
+Version: 4.2.4
 Author: ibericode
 Author URI: https://ibericode.com/
 Text Domain: mailchimp-for-wp
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL v3
 
 MailChimp for WordPress
-Copyright (C) 2012-2017, Danny van Kooten, hi@dannyvankooten.com
+Copyright (C) 2012-2018, Danny van Kooten, hi@dannyvankooten.com
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ function _mc4wp_load_plugin() {
 	}
 
 	// bootstrap the core plugin
-	define( 'MC4WP_VERSION', '4.1.11' );
+	define( 'MC4WP_VERSION', '4.2.4' );
 	define( 'MC4WP_PLUGIN_DIR', dirname( __FILE__ ) . '/' );
 	define( 'MC4WP_PLUGIN_URL', plugins_url( '/' , __FILE__ ) );
 	define( 'MC4WP_PLUGIN_FILE', __FILE__ );
@@ -75,7 +75,7 @@ function _mc4wp_load_plugin() {
 	$mc4wp['integrations']->add_hooks();
 
 	// Doing cron? Load Usage Tracking class.
-	if( defined( 'DOING_CRON' ) && DOING_CRON ) {
+	if( isset( $_GET['doing_wp_cron'] ) || ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 		MC4WP_Usage_Tracking::instance()->add_hooks();
 	}
 

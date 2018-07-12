@@ -25,8 +25,6 @@ class MC4WP_Forms_Admin {
 	public function __construct( MC4WP_Admin_Messages $messages, MC4WP_MailChimp $mailchimp ) {
 		$this->messages = $messages;
 		$this->mailchimp = $mailchimp;
-
-		require dirname( __FILE__ ) . '/admin-functions.php';
 	}
 
 	/**
@@ -35,7 +33,6 @@ class MC4WP_Forms_Admin {
 	public function add_hooks() {
 		add_action( 'register_shortcode_ui', array( $this, 'register_shortcake_ui' ) );
 		add_action( 'mc4wp_save_form', array( $this, 'update_form_stylesheets' ) );
-		add_action( 'mc4wp_admin_preview_form', array( $this, 'prepare_form_preview' ) );
 		add_action( 'mc4wp_admin_edit_form', array( $this, 'process_save_form' ) );
 		add_action( 'mc4wp_admin_add_form', array( $this, 'process_add_form' ) );
 		add_filter( 'mc4wp_admin_menu_items', array( $this, 'add_menu_item' ), 5 );
@@ -58,6 +55,9 @@ class MC4WP_Forms_Admin {
 		wp_enqueue_script( 'mc4wp-forms-admin');
 		wp_localize_script( 'mc4wp-forms-admin', 'mc4wp_forms_i18n', array(
 			'addToForm'     => __( "Add to form", 'mailchimp-for-wp' ),
+			'agreeToTerms' => __( "I have read and agree to the terms & conditions", 'mailchimp-for-wp' ),
+			'agreeToTermsShort' => __( "Agree to terms", 'mailchimp-for-wp' ),
+			'agreeToTermsLink' => __( 'Link to your terms & conditions page', 'mailchimp-for-wp' ),
 			'city'          => __( 'City', 'mailchimp-for-wp' ),
 			'checkboxes'    => __( 'Checkboxes', 'mailchimp-for-wp' ),
 			'choices'       => __( 'Choices', 'mailchimp-for-wp' ),
@@ -159,8 +159,7 @@ class MC4WP_Forms_Admin {
 	 * @return int
 	 */
 	public function save_form( $data ) {
-
-		static $keys = array(
+		$keys = array(
 			'settings' => array(),
 			'messages' => array(),
 			'name' => '',
@@ -226,6 +225,9 @@ class MC4WP_Forms_Admin {
 		// strip <form> tags from content
 		$data['content'] =  preg_replace( '/<\/?form(.|\s)*?>/i', '', $data['content'] );
 
+		// replace lowercased name="name" to prevent 404
+		$data['content'] = str_ireplace( ' name=\"name\"', ' name=\"NAME\"', $data['content'] );
+
 		// sanitize text fields
 		$data['settings']['redirect'] = sanitize_text_field( $data['settings']['redirect'] );
 
@@ -269,9 +271,7 @@ class MC4WP_Forms_Admin {
 		$this->save_form( $form_data );
 		$this->set_default_form_id( $form_id );
 
-		$previewer = new MC4WP_Form_Previewer( $form_id );
-
-		$this->messages->flash( __( "<strong>Success!</strong> Form successfully saved.", 'mailchimp-for-wp' ) . sprintf( ' <a href="%s">', esc_attr( $previewer->get_preview_url() ) ) . __( 'Preview form', 'mailchimp-for-wp' ) . '</a>' );
+		$this->messages->flash( __( "<strong>Success!</strong> Form successfully saved.", 'mailchimp-for-wp' ) );
 	}
 
     /**
@@ -307,29 +307,6 @@ class MC4WP_Forms_Admin {
 	}
 
 	/**
-	 * Prepares a Form Preview
-	 */
-	public function prepare_form_preview() {
-		$form_id = (int) $_POST['mc4wp_form_id'];
-		$preview_id = (int) get_option( 'mc4wp_form_preview_id', 0 );
-
-		// get data
-		$form_data = $_POST['mc4wp_form'];
-		$form_data['ID'] =  $preview_id;
-		$form_data['status'] = 'preview';
-		$real_preview_id = $this->save_form( $form_data );
-
-		if( $real_preview_id != $preview_id ) {
-			update_option( 'mc4wp_form_preview_id', $real_preview_id, false );
-		}
-
-		// redirect to preview
-		$previewer = new MC4WP_Form_Previewer( $form_id, $real_preview_id );
-		wp_redirect( $previewer->get_preview_url() );
-		exit;
-	}
-
-	/**
 	 * Redirect to correct form action
 	 *
 	 * @ignore
@@ -340,19 +317,30 @@ class MC4WP_Forms_Admin {
 			return;
 		}
 
-		// query first available form and go there
-		$forms = mc4wp_get_forms( array( 'numberposts' => 1 ) );
+		try{
+			// try default form first
+			$default_form = mc4wp_get_form();
+			$redirect_url = mc4wp_get_edit_form_url( $default_form->ID );
+		} catch(Exception $e) {
+			// no default form, query first available form and go there
+			$forms = mc4wp_get_forms( array( 'numberposts' => 1 ) );
 
-		if( $forms ) {
-			// if we have a post, go to the "edit form" screen
-			$form = array_pop( $forms );
-			$redirect_url = mc4wp_get_edit_form_url( $form->ID );
-		} else {
-			// we don't have a form yet, go to "add new" screen
-			$redirect_url = mc4wp_get_add_form_url();
+			if( $forms ) {
+				// if we have a post, go to the "edit form" screen
+				$form = array_pop( $forms );
+				$redirect_url = mc4wp_get_edit_form_url( $form->ID );
+			} else {
+				// we don't have a form yet, go to "add new" screen
+				$redirect_url = mc4wp_get_add_form_url();
+			}
 		}
 
-		wp_redirect( $redirect_url );
+		if( headers_sent() ) {
+			echo sprintf( '<meta http-equiv="refresh" content="0;url=%s" />', $redirect_url );
+		} else {
+			wp_redirect( $redirect_url );
+		}
+
 		exit;
 	}
 
@@ -396,6 +384,11 @@ class MC4WP_Forms_Admin {
 
 		$opts = $form->settings;
 		$active_tab = ( isset( $_GET['tab'] ) ) ? $_GET['tab'] : 'fields';
+
+
+		$form_preview_url = add_query_arg( array( 
+            'mc4wp_preview_form' => $form_id,
+        ), site_url( '/', 'admin' ) );
 
 		require dirname( __FILE__ ) . '/views/edit-form.php';
 	}
