@@ -1,0 +1,336 @@
+2018-07-13T18:57:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:57:09+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:57:46+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:58:34+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:58:38+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:58:40+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:58:47+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:59:00+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:59:24+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T18:59:34+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:11:11+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:11:19+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:15:02+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:15:17+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:16:54+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:16:58+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:18:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:18:39+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:05+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:29+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:32+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:33+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:34+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:44+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:46+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:20:54+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:22:25+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:162
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:22:28+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:162
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:23:00+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:162
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:23:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:162
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:23:20+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:162
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:28:31+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:28:51+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:29:41+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:29:47+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:29:53+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:30:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:35:53+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:38:22+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:38:44+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T19:38:52+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:161
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/class-wc-correios-
+
+2018-07-13T20:00:05+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_DevHouse_Default_PSAW::product_default_value_height(), 1 passed in /home/ritmosaude/public_html/wp-includes/class-wp-hook.php on line 286 and exactly 2 expected in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:164
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW->product_default_value_height(0)
+#1 /home/ritmosaude/public_html/wp-includes/plugin.php(203): WP_Hook->apply_filters(0, Array)
+#2 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-package.php(226): apply_filters('woocommerce_cor...', 0)
+#3 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/class-wc-correios-webservice.php(226): WC_Correios_Package->get_data()
+#4 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-correios/includes/abstracts/clas
+

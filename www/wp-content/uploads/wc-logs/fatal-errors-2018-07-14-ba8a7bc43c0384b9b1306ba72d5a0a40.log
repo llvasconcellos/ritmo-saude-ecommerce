@@ -1,0 +1,77 @@
+2018-07-14T11:21:24+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
+2018-07-14T11:21:24+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
+2018-07-14T11:21:25+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
+2018-07-14T11:22:14+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
+2018-07-14T11:22:24+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
+2018-07-14T11:24:26+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
+2018-07-14T11:26:28+00:00 CRITICAL Uncaught Error: Call to undefined method WC_DevHouse_Default_PSAW::init_settings() in /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php:68
+Stack trace:
+#0 /home/ritmosaude/public_html/wp-content/plugins/woocommerce-devhouse-default-product-size-and-weight/woocommerce-devhouse-default-product-size-and-weight.php(101): WC_DevHouse_Default_PSAW->__construct()
+#1 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(286): WC_DevHouse_Default_PSAW::get_instance('')
+#2 /home/ritmosaude/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/ritmosaude/public_html/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/ritmosaude/public_html/wp-settings.php(327): do_action('plugins_loaded')
+#5 /home/ritmosaude/public_html/wp-config.php(100): require_once('/home/ritmosaud...')
+#6 /home/ritmosaude/public_html/wp-load.php(37): require_once('/home/ritmosaud...')
+#7
+
