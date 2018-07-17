@@ -83,7 +83,12 @@ $table_prefix  = 'ritmos_';
  *
  * @link https://codex.wordpress.org/pt-br:Depura%C3%A7%C3%A3o_no_WordPress
  */
+
+// Habilita modo de debug
 define('WP_DEBUG', false);
+ 
+// Guarda os logs em /wp-content/debug.log
+//define('WP_DEBUG_LOG', true);
 
 /* Isto é tudo, pode parar de editar! :) */
 
